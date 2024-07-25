@@ -5,8 +5,9 @@ using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 namespace ProjectSurvivor
 {
-    public class Global
+    public class Global:Architecture<Global>
     {
+        #region Model
         //æ≠—È÷µ
         public static BindableProperty<int> Exp = new BindableProperty<int>(0);
 
@@ -24,9 +25,14 @@ namespace ProjectSurvivor
 
         public static BindableProperty<float> CoinPercent = new BindableProperty<float>(0.05f);
 
+        #endregion
+
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
         {
+            ResKit.Init();  
+            UIKit.Root.SetResolution(1920, 1080, 1);
+
             Global.Coin.Value = PlayerPrefs.GetInt("coin", 0);
 
           
@@ -89,6 +95,11 @@ namespace ProjectSurvivor
 
             EnemyGenerator.EnemyCount.Value = 0;
 
+        }
+
+        protected override void Init()
+        {
+            
         }
     }
 }

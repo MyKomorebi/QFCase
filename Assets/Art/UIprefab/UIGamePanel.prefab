@@ -67,7 +67,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 77f6f800e71ea084f98f032e446fbbf4, type: 3}
     m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 77f6f800e71ea084f98f032e446fbbf4, type: 3}
     m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 6722153520740103123}
   - component: {fileID: 6077346298730814484}
   - component: {fileID: 7107015534252364565}
+  - component: {fileID: 3672521818252983314}
   m_Layer: 0
   m_Name: EnemyCountText
   m_TagString: Untagged
@@ -283,7 +284,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 77f6f800e71ea084f98f032e446fbbf4, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -312,6 +313,21 @@ MonoBehaviour:
   CustomComponentName: ExpText
   CustomComment: 
   mComponentName: UnityEngine.UI.Text
+--- !u!114 &3672521818252983314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2850937049170644180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3008442453662818763
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +430,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -85}
-  m_SizeDelta: {x: 300, y: 50}
+  m_SizeDelta: {x: 380, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8259131285625831355
 CanvasRenderer:
@@ -526,6 +542,7 @@ GameObject:
   - component: {fileID: 5975174834409996755}
   - component: {fileID: 6923051694527381598}
   - component: {fileID: 2812504559541148373}
+  - component: {fileID: 3672521818252983317}
   m_Layer: 0
   m_Name: ExpText
   m_TagString: Untagged
@@ -582,7 +599,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 77f6f800e71ea084f98f032e446fbbf4, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -611,6 +628,21 @@ MonoBehaviour:
   CustomComponentName: ExpText
   CustomComment: 
   mComponentName: UnityEngine.UI.Text
+--- !u!114 &3672521818252983317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291131832658630555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5142333416361913697
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +655,7 @@ GameObject:
   - component: {fileID: 2586240530809481591}
   - component: {fileID: 1890097786001098146}
   - component: {fileID: 1684301533216785055}
+  - component: {fileID: 3672521818252983316}
   m_Layer: 0
   m_Name: LevelText
   m_TagString: Untagged
@@ -679,7 +712,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 77f6f800e71ea084f98f032e446fbbf4, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -708,6 +741,21 @@ MonoBehaviour:
   CustomComponentName: ExpText
   CustomComment: 
   mComponentName: UnityEngine.UI.Text
+--- !u!114 &3672521818252983316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5142333416361913697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5177465883938169845
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +768,7 @@ GameObject:
   - component: {fileID: 5288502943221830330}
   - component: {fileID: 707611894796168474}
   - component: {fileID: 137454617215310139}
+  - component: {fileID: 3672521818252983315}
   m_Layer: 0
   m_Name: TimeText
   m_TagString: Untagged
@@ -776,7 +825,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 77f6f800e71ea084f98f032e446fbbf4, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -805,6 +854,21 @@ MonoBehaviour:
   CustomComponentName: ExpText
   CustomComment: 
   mComponentName: UnityEngine.UI.Text
+--- !u!114 &3672521818252983315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177465883938169845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5503932784583066295
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +881,7 @@ GameObject:
   - component: {fileID: 8909142476636549848}
   - component: {fileID: 5271529581833221662}
   - component: {fileID: 8280960635401672805}
+  - component: {fileID: 3672521818252983313}
   m_Layer: 0
   m_Name: CoinText
   m_TagString: Untagged
@@ -873,7 +938,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 77f6f800e71ea084f98f032e446fbbf4, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -902,6 +967,21 @@ MonoBehaviour:
   CustomComponentName: ExpText
   CustomComment: 
   mComponentName: UnityEngine.UI.Text
+--- !u!114 &3672521818252983313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503932784583066295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8152055505222021063
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +1021,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 50}
+  m_SizeDelta: {x: 380, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8586978813223957001
 CanvasRenderer:
