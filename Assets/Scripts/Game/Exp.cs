@@ -10,6 +10,7 @@ namespace ProjectSurvivor
 
             if (collision.GetComponent<CollectableArea>())
             {
+                AudioKit.PlaySound("Exp");
                 Global.Exp.Value++;
 
                 this.DestroyGameObjGracefully();

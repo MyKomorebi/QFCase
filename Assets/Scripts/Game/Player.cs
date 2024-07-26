@@ -32,6 +32,7 @@ namespace ProjectSurvivor
 				{
 					if (hitBox.Owner.CompareTag("Enemy"))
 					{
+						AudioKit.PlaySound("Die");
                         //销毁自己
                         this.DestroyGameObjGracefully();
                         //真机模式下，必须初始化

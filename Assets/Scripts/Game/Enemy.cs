@@ -50,6 +50,8 @@ namespace ProjectSurvivor
 
             Sprite.color = Color.red;
 
+            AudioKit.PlaySound("Hit");
+
             ActionKit.Delay(0.2f, () =>
             {
                 this.hp -= Global.SimpleAbillityDamage.Value;

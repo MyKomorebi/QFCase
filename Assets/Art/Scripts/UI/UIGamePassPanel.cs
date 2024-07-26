@@ -26,7 +26,7 @@ namespace ProjectSurvivor
 
 					Global.RestData();
                     //重新加载自己
-                    SceneManager.LoadScene("SampleScene");
+                    SceneManager.LoadScene(1);
                 }
             }).UnRegisterWhenGameObjectDestroyed(gameObject);//销毁自己时注销事件
 
@@ -36,6 +36,8 @@ namespace ProjectSurvivor
 
                 SceneManager.LoadScene(0);
             });
+
+			AudioKit.PlaySound("GamePass");
         }
 		
 		protected override void OnOpen(IUIData uiData = null)
