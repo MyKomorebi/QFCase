@@ -89,6 +89,7 @@ namespace ProjectSurvivor
 				Global.SimpleAbillityDamage.Value *= 1.5f;
 
                 UpgradeRoot.Hide();
+				AudioKit.PlaySound("AbillityLevelUp");
             });
 
 			BtnSimpleDurationUpgrade.onClick.AddListener(() =>
@@ -98,6 +99,7 @@ namespace ProjectSurvivor
                 Global.SimpleAbillityDamage.Value *= 0.8f;
 
 				UpgradeRoot.Hide();
+                AudioKit.PlaySound("AbillityLevelUp");
             });
 
 
@@ -107,6 +109,7 @@ namespace ProjectSurvivor
 				Global.CurrentSeconds.Value += Time.deltaTime;
 				if( enemyGenerator.LastWave &&enemyGenerator.CurrentWave==null &&EnemyGenerator.EnemyCount.Value==0)
 				{
+					this.CloseSelf();
 					UIKit.OpenPanel<UIGamePassPanel>();
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);

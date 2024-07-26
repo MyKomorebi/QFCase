@@ -51,13 +51,22 @@ namespace ProjectSurvivor
 			{
 				Global.CoinPercent.Value += 0.1f;
 				Global.Coin.Value -= 5;
-			});
+                AudioKit.PlaySound("AbillityLevelUp");
+            });
 
 			BtnExpPercentUpgrade.onClick.AddListener(() =>
 			{
 				Global.Expercent.Value += 0.1f;
 				Global.Coin.Value -= 5;
-			});
+                AudioKit.PlaySound("AbillityLevelUp");
+            });
+			BtnPlayerMaxHpUpgrade.onClick.AddListener(() =>
+			{
+                Global.MaxHP.Value ++;
+                Global.Coin.Value -= 30;
+                AudioKit.PlaySound("AbillityLevelUp");
+            });
+
 			BtnClose.onClick.AddListener(() =>
 			{
 				CoinUpgradePanel.Hide();

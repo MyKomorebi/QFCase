@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a2cfb3f16e65944da17ad7413294984
+guid: 7b11198b2624a2543bf8524a38b1b455
 AudioImporter:
   externalObjects: {}
   serializedVersion: 6
@@ -18,5 +18,5 @@ AudioImporter:
   ambisonic: 0
   3D: 1
   userData: 
-  assetBundleName: gamebg_mp3
+  assetBundleName: getallexp_wav
   assetBundleVariant: 

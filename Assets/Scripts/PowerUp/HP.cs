@@ -15,7 +15,7 @@ namespace ProjectSurvivor
                 }
                 else
                 {
-                    //AudioKit.PlaySound("HP");
+                    AudioKit.PlaySound("HP");
 
                     Global.HP.Value++;
 
