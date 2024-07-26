@@ -32,13 +32,21 @@ namespace ProjectSurvivor
 				{
 					if (hitBox.Owner.CompareTag("Enemy"))
 					{
-						AudioKit.PlaySound("Die");
-                        //销毁自己
-                        this.DestroyGameObjGracefully();
-                        //真机模式下，必须初始化
-                        ResKit.Init();
-                        //打开结束面板
-                        UIKit.OpenPanel<UIGameOverPanel>();
+						Global.HP.Value--;
+						if(Global.HP.Value<=0)
+						{
+                            AudioKit.PlaySound("Die");
+                            //销毁自己
+                            this.DestroyGameObjGracefully();
+                            
+                            //打开结束面板
+                            UIKit.OpenPanel<UIGameOverPanel>();
+                        }
+						else
+						{
+							AudioKit.PlaySound("Hurt");
+						}
+						
                     }
 				}
 				

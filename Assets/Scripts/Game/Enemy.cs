@@ -21,15 +21,24 @@ namespace ProjectSurvivor
         {
             EnemyGenerator.EnemyCount.Value--;
         }
-        void Update()
-		{
-			if (Player.Default)
-			{
+
+        private void FixedUpdate()
+        {
+            if (Player.Default)
+            {
                 //得到指向玩家的方向
                 var direction = (Player.Default.transform.position - transform.position).normalized;
                 //向玩家移动
-                transform.Translate(direction * movementSpeed * Time.deltaTime);
+                SelfRigidbody2D.velocity = direction * movementSpeed;
             }
+            else
+            {
+                SelfRigidbody2D.velocity=Vector2.zero;
+            }
+        }
+        void Update()
+		{
+			
 
 			if (hp <= 0)
 			{
@@ -44,9 +53,9 @@ namespace ProjectSurvivor
 
         private bool IgnoreHurt=false;
 
-        internal void Hurt(float value)
+        internal void Hurt(float value,bool force=false)
         {
-            if (IgnoreHurt) return;
+            if (IgnoreHurt&&!force) return;
 
             Sprite.color = Color.red;
 
@@ -54,7 +63,7 @@ namespace ProjectSurvivor
 
             ActionKit.Delay(0.2f, () =>
             {
-                this.hp -= Global.SimpleAbillityDamage.Value;
+                this.hp -= value;
 
                 this.Sprite.color = Color.white;
 

@@ -5,9 +5,13 @@ using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 namespace ProjectSurvivor
 {
-    public class Global:Architecture<Global>
+    public class Global : Architecture<Global>
     {
         #region Model
+
+        public static BindableProperty<int> HP = new BindableProperty<int>(3);
+
+        public static BindableProperty<int> MaxHP = new BindableProperty<int>(3);
         //æ≠—È÷µ
         public static BindableProperty<int> Exp = new BindableProperty<int>(0);
 
@@ -30,12 +34,15 @@ namespace ProjectSurvivor
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()
         {
-            ResKit.Init();  
+            ResKit.Init();
             UIKit.Root.SetResolution(1920, 1080, 1);
+
+            Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(MaxHP), 3);
+            HP.Value = MaxHP.Value;
 
             Global.Coin.Value = PlayerPrefs.GetInt("coin", 0);
 
-          
+
             Global.Expercent.Value = PlayerPrefs.GetFloat(nameof(Expercent), 0.4f);
 
             Global.CoinPercent.Value = PlayerPrefs.GetFloat(nameof(CoinPercent), 0.1f);
@@ -51,6 +58,11 @@ namespace ProjectSurvivor
             Global.CoinPercent.Register(coinPercent =>
             {
                 PlayerPrefs.SetFloat(nameof(CoinPercent), coinPercent);
+            });
+
+            Global.MaxHP.Register(maxHP =>
+            {
+                PlayerPrefs.SetInt(nameof(MaxHP), maxHP);
             });
         }
         public static int ExpToNext()
@@ -69,6 +81,7 @@ namespace ProjectSurvivor
                 PowerUpManager.Default.Exp.Instantiate()
                    .Position(gameObject.Position())
                    .Show();
+                return;
             }
             percent = Random.Range(0, 1f);
 
@@ -77,12 +90,40 @@ namespace ProjectSurvivor
                 PowerUpManager.Default.Coin.Instantiate()
                    .Position(gameObject.Position())
                    .Show();
+                return;
             }
-           
+            percent = Random.Range(0, 1f);
+            if (percent < 0.1f)
+            {
+                PowerUpManager.Default.HP.Instantiate()
+                   .Position(gameObject.Position())
+                   .Show();
+                return;
+
+            }
+            percent = Random.Range(0, 1f);
+            if (percent < 0.1f)
+            {
+                PowerUpManager.Default.Bomb.Instantiate()
+                   .Position(gameObject.Position())
+                   .Show();
+                return;
+            }
+            percent = Random.Range(0, 1f);
+            if (percent < 0.1f)
+            {
+                PowerUpManager.Default.GetAllExp.Instantiate()
+                   .Position(gameObject.Position())
+                   .Show();
+                return;
+            }
+
         }
 
         public static void RestData()
         {
+
+            HP.Value = MaxHP.Value;
             Exp.Value = 0;
 
             Level.Value = 1;
@@ -99,7 +140,7 @@ namespace ProjectSurvivor
 
         protected override void Init()
         {
-            
+
         }
     }
 }
