@@ -19,29 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: ProjectSurvivor.Exp
-      PathToRoot: Exp
-      MemberName: Exp
-    - TypeName: ProjectSurvivor.Coin
-      PathToRoot: Coin
-      MemberName: Coin
-    - TypeName: ProjectSurvivor.HP
-      PathToRoot: HP
-      MemberName: HP
-    - TypeName: CircleCollider2D
-      PathToRoot: Bomb
-      MemberName: Bomb
-    - TypeName: ProjectSurvivor.GetAllExp
-      PathToRoot: GetAllExp
-      MemberName: GetAllExp
+    - TypeName: RectTransform
+      PathToRoot: FloatingText
+      MemberName: FloatingText
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: PowerUpManager
+    ClassName: FloatingTextController
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class PowerUpManager : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class FloatingTextController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:07303b19-6914-45c6-81dd-e3412e610508\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class PowerUpManager\r\n\t{\r\n\r\n\t\tpublic
-      ProjectSurvivor.Exp Exp;\r\n\r\n\t\tpublic ProjectSurvivor.Coin Coin;\r\n\r\n\t\tpublic
-      ProjectSurvivor.HP HP;\r\n\r\n\t\tpublic CircleCollider2D Bomb;\r\n\r\n\t\tpublic
-      ProjectSurvivor.GetAllExp GetAllExp;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:ff621702-c63c-4918-8a27-a3491ad3bad3\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class FloatingTextController\r\n\t{\r\n\r\n\t\tpublic
+      RectTransform FloatingText;\r\n\r\n\t}\r\n}\r\n"

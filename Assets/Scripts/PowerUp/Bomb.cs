@@ -23,6 +23,7 @@ namespace ProjectSurvivor
 
                 }
                 AudioKit.PlaySound("Bomb");
+                CameraController.Shake();
                 this.DestroyGameObjGracefully();
             }
         }

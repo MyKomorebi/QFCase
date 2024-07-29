@@ -59,13 +59,13 @@ namespace ProjectSurvivor
 		void Update()
 		{
 			//获取水平输入
-			var horizontal = Input.GetAxis("Horizontal");
+			var horizontal = Input.GetAxisRaw("Horizontal");
 			//获取垂直输入
-			var vertical = Input.GetAxis("Vertical");
+			var vertical = Input.GetAxisRaw("Vertical");
 			//归一化向量
-			var direction = new Vector2(horizontal, vertical).normalized;
+			var targetVelocity = new Vector2(horizontal, vertical).normalized*movementSpeed;
 			//为刚体添加事件
-			SelfRigidbody2D.velocity = direction * movementSpeed;
+			SelfRigidbody2D.velocity =Vector2.Lerp(SelfRigidbody2D.velocity,targetVelocity,1-Mathf.Exp(-Time.deltaTime*5));
 		}
 
         private void OnDestroy()

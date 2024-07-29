@@ -57,6 +57,8 @@ namespace ProjectSurvivor
         {
             if (IgnoreHurt&&!force) return;
 
+            FloatingTextController.Play(transform.position,value.ToString());
+
             Sprite.color = Color.red;
 
             AudioKit.PlaySound("Hit");
