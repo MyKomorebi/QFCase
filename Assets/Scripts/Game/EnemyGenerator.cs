@@ -18,9 +18,9 @@ namespace ProjectSurvivor
     {
         //当前生成时间
         private float currentGenerateSeconds = 0;
-
+        //当前波次时间
         private float currentWaveSeconds = 0;
-
+        //敌人数量
         public static BindableProperty<int> EnemyCount = new BindableProperty<int>(0);
 
         [SerializeField]
@@ -37,6 +37,7 @@ namespace ProjectSurvivor
 
         private void Start()
         {
+            //将敌人波次入队列
             foreach(var enemyEave in EnemyWaves)
             {
                 enemyWaveQueue.Enqueue(enemyEave);

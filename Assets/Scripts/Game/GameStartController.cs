@@ -9,6 +9,7 @@ namespace ProjectSurvivor
 
         void Start()
 		{
+			//打开游戏开始界面
 			UIKit.OpenPanel<UIGameStartPanel>();
 		}
 	}

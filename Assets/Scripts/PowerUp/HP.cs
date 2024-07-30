@@ -15,10 +15,11 @@ namespace ProjectSurvivor
                 }
                 else
                 {
+                    //播放回复血量
                     AudioKit.PlaySound("HP");
-
+                    //血量加一
                     Global.HP.Value++;
-
+                    //销毁自己
                     this.DestroyGameObjGracefully();
                 }
                
