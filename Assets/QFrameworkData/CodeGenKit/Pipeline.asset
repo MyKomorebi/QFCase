@@ -19,15 +19,18 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: RectTransform
-      PathToRoot: FloatingText
-      MemberName: FloatingText
+    - TypeName: ProjectSurvivor.Enemy
+      PathToRoot: Enemy
+      MemberName: Enemy
+    - TypeName: ProjectSurvivor.Enemy
+      PathToRoot: EnemyFly
+      MemberName: EnemyFly
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: FloatingTextController
+    ClassName: EnemyGenerator
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class FloatingTextController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class EnemyGenerator : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:ff621702-c63c-4918-8a27-a3491ad3bad3\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class FloatingTextController\r\n\t{\r\n\r\n\t\tpublic
-      RectTransform FloatingText;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:8cb5443e-fa2b-4e49-afbd-8551f1efd7ee\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class EnemyGenerator\r\n\t{\r\n\r\n\t\tpublic
+      ProjectSurvivor.Enemy Enemy;\r\n\r\n\t\tpublic ProjectSurvivor.Enemy EnemyFly;\r\n\r\n\t}\r\n}\r\n"

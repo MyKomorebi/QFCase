@@ -8,7 +8,7 @@ namespace ProjectSurvivor
 	public class UIGameStartPanelData : UIPanelData
 	{
 	}
-	public partial class UIGameStartPanel : UIPanel
+	public partial class UIGameStartPanel : UIPanel,IController
 	{
 		protected override void OnInit(IUIData uiData = null)
 		{
@@ -29,49 +29,8 @@ namespace ProjectSurvivor
                 CoinUpgradePanel.Show();
             });
 
-			Global.Coin.RegisterWithInitValue(coin =>
-			{
-				CoinText.text = "½ð±Ò£º" + coin;
-				if (coin >= 5)
-				{
-					BtnCoinPercenUpgrade.Show();
-
-					BtnExpPercentUpgrade.Show();
-				}
-				else
-				{
-                    BtnCoinPercenUpgrade.Hide();
-
-                    BtnExpPercentUpgrade.Hide();
-                }
-
-			});
-
-            BtnCoinPercenUpgrade.onClick.AddListener(() =>
-			{
-				Global.CoinPercent.Value += 0.1f;
-				Global.Coin.Value -= 5;
-                AudioKit.PlaySound("AbillityLevelUp");
-            });
-
-			BtnExpPercentUpgrade.onClick.AddListener(() =>
-			{
-				Global.Expercent.Value += 0.1f;
-				Global.Coin.Value -= 5;
-                AudioKit.PlaySound("AbillityLevelUp");
-            });
-			BtnPlayerMaxHpUpgrade.onClick.AddListener(() =>
-			{
-                Global.MaxHP.Value ++;
-                Global.Coin.Value -= 30;
-                AudioKit.PlaySound("AbillityLevelUp");
-            });
-
-			BtnClose.onClick.AddListener(() =>
-			{
-				CoinUpgradePanel.Hide();
-			});
 			
+			this.GetSystem<CoinUpgradeSystem>().Say();
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)
@@ -89,5 +48,10 @@ namespace ProjectSurvivor
 		protected override void OnClose()
 		{
 		}
-	}
+
+        public IArchitecture GetArchitecture()
+        {
+			return Global.Interface;
+        }
+    }
 }

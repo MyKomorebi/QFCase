@@ -166,6 +166,9 @@ namespace ProjectSurvivor
         protected override void Init()
         {
 
+            this.RegisterSystem(new ExpUpgradeSystem());
+            this.RegisterSystem(new SaveSystem());
+            this.RegisterSystem(new CoinUpgradeSystem());
         }
     }
 }
