@@ -58,19 +58,20 @@ namespace ProjectSurvivor
 
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
-			//数值改变时执行事件
-			Global.Level.Register(lv =>
+			ExpUpgradePanle.Hide();
+            //数值改变时执行事件
+            Global.Level.Register(lv =>
 			{
 
-                Time.timeScale = 0f;
+				Time.timeScale = 0f;
 
-				UpgradeRoot.Show();
-				AudioKit.PlaySound("LevelUp");
+                ExpUpgradePanle.Show();
+                AudioKit.PlaySound("LevelUp");
 
-
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
-            //初始化，数值改变时，执行事件
-            Global.Exp.RegisterWithInitValue(exp =>
+				
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+			//初始化，数值改变时，执行事件
+			Global.Exp.RegisterWithInitValue(exp =>
             {
 				if (exp >= Global.ExpToNext())
 				{
@@ -79,28 +80,7 @@ namespace ProjectSurvivor
 					Global.Level.Value++;
 				}
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
-			//隐藏按钮
-			UpgradeRoot.Hide();
-            //添加点击事件
-            BtnUpgrade.onClick.AddListener(() =>
-			{
-				Time.timeScale = 1f;
-
-				Global.SimpleAbillityDamage.Value *= 1.5f;
-
-                UpgradeRoot.Hide();
-				AudioKit.PlaySound("AbillityLevelUp");
-            });
-
-			BtnSimpleDurationUpgrade.onClick.AddListener(() =>
-			{
-                Time.timeScale = 1f;
-
-                Global.SimpleAbillityDamage.Value *= 0.8f;
-
-				UpgradeRoot.Hide();
-                AudioKit.PlaySound("AbillityLevelUp");
-            });
+			
 
 
 			var enemyGenerator=FindObjectOfType<EnemyGenerator>();

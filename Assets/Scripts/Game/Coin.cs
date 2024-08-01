@@ -7,14 +7,15 @@ namespace ProjectSurvivor
 	{
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            //Èç¹û´¥Åöµ½Íæ¼ÒµÄÅö×²ÇøÓò
+            //å¦‚æœè§¦ç¢°åˆ°ç©å®¶çš„ç¢°æ’åŒºåŸŸ
             if (collision.GetComponent<CollectableArea>())
             {
-                //²¥·Å½ğ±ÒÒôĞ§
+                //æ’­æ”¾é‡‘å¸éŸ³æ•ˆ
                 AudioKit.PlaySound("Coin");
-                //½ğ±ÒÔö¼Ó
+                
+                //é‡‘å¸å¢åŠ 
                 Global.Coin.Value++;
-                //Ïú»Ù×Ô¼º
+                //é”€æ¯è‡ªå·±
                 this.DestroyGameObjGracefully();
             } 
         }

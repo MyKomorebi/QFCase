@@ -20,7 +20,7 @@ public class ExpUpgradeItem
         mOnUpgrade?.Invoke(this);
         UpgradeFinish = true;
         Onchange.Trigger();
-        CoinUpgradeSystem.OnCoinUpgradeSystem.Trigger();
+       
     }
 
     public bool ConditionCheck()
