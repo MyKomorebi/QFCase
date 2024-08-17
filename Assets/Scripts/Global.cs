@@ -73,6 +73,7 @@ namespace ProjectSurvivor
                 //保存最大血量
                 PlayerPrefs.SetInt(nameof(MaxHP), maxHP);
             });
+            var _ = Interface;
         }
         /// <summary>
         /// 升级需要的经验
@@ -160,6 +161,8 @@ namespace ProjectSurvivor
             SimpleAbillityDuration.Value = 1.5f;
             //敌人数量重置
             EnemyGenerator.EnemyCount.Value = 0;
+
+            Interface.GetSystem<ExpUpgradeSystem>().ResetData();
 
         }
 

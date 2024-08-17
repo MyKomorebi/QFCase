@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using QFramework;
 using ProjectSurvivor;
+using System.Linq;
 
 public class ExpUpgradeSystem : AbstractSystem
 {
@@ -15,76 +16,65 @@ public class ExpUpgradeSystem : AbstractSystem
     }
     protected override void OnInit()
     {
-     var simpleDamageLv1=Add(new ExpUpgradeItem()
-            .WithKey("simple_damage_lv1")
-            .WithDescription("简单能力的攻击力提升 Lv1")
-            .OnUpgrade(_ =>
-            {
-                Global.SimpleAbillityDamage.Value *= 1.5f;
-            })
-           );
-       var simpleDamageLv2= Add(new ExpUpgradeItem()
-           .WithKey("simple_damage_lv2")
-           .WithDescription("简单能力的攻击力提升 Lv2")
-           .Condition(item=>simpleDamageLv1.UpgradeFinish)
-           .OnUpgrade(_ =>
-           {
-               Global.SimpleAbillityDamage.Value *= 1.5f;
-           })
-          );
-        var simpleDamageLv3=Add(new ExpUpgradeItem()
-           .WithKey("simple_damage_lv3")
-           .WithDescription("简单能力的攻击力提升 Lv3")
-           .Condition(item => simpleDamageLv2.UpgradeFinish)
-           .OnUpgrade(_ =>
-           {
-               Global.SimpleAbillityDamage.Value *= 1.5f;
-           })
-          );
+        ResetData();
 
-
-      var simpleDurationLv1=Add(new ExpUpgradeItem()
-            .WithKey("simple_duration_lv1")
-            .WithDescription("简单能力的攻击间隔减少 Lv1")
-            .OnUpgrade(_ =>
-            {
-                Global.SimpleAbillityDamage.Value *= 0.8f;
-            })
-           );
-     var simpleDurationLv2=Add(new ExpUpgradeItem()
-            .WithKey("simple_duration_lv2")
-            .WithDescription("简单能力的攻击间隔减少 Lv2")
-            .Condition(_=> simpleDurationLv1.UpgradeFinish)
-            .OnUpgrade(_ =>
-            {
-                Global.SimpleAbillityDamage.Value *= 0.8f;
-            })
-           );
-        var simpleDurationLv3=   Add(new ExpUpgradeItem()
-            .WithKey("simple_duration_lv3")
-            .WithDescription("简单能力的攻击间隔减少 Lv3")
-            .Condition(_ => simpleDurationLv2.UpgradeFinish)
-            .OnUpgrade(_ =>
-            {
-                Global.SimpleAbillityDamage.Value *= 0.8f;
-            })
-           );
-        simpleDamageLv1.Onchange.Register(() =>
+        Global.Level.Register(_ =>
         {
-            simpleDamageLv2.Onchange.Trigger();
-        });
-        simpleDamageLv2.Onchange.Register(() =>
-        {
-            simpleDamageLv3.Onchange.Trigger();
-        });
-        simpleDurationLv1.Onchange.Register(() =>
-        {
-            simpleDurationLv2.Onchange.Trigger();
-        });
-        simpleDurationLv2.Onchange.Register(() =>
-        {
-            simpleDurationLv3.Onchange.Trigger();
+            Roll();
         });
     }
 
+    public void ResetData()
+    {
+        Items.Clear();
+
+        var simpleDamageLv1 = Add(new ExpUpgradeItem()
+              .WithKey("simple_damage")
+              .WithDescription(lv=>$"简单能力的攻击力提升 Lv{lv}")
+              .WithMaxLevel(10)
+              .OnUpgrade((_, level) =>
+              {
+                  if (level == 1)
+                  {
+
+                  }
+                  Global.SimpleAbillityDamage.Value *= 1.5f;
+              })
+             );
+
+
+
+        var simpleDurationLv1 = Add(new ExpUpgradeItem()
+              .WithKey("simple_duration")
+              .WithDescription(lv=>$"简单能力的攻击间隔减少 Lv{lv}")
+                .WithMaxLevel(10)
+              .OnUpgrade((_, level) =>
+              {
+                  if (level == 1)
+                  {
+
+                  }
+                  Global.SimpleAbillityDamage.Value *= 1.5f;
+              })
+             );
+    }
+    public void Roll()
+    {
+
+        foreach(var expUpgradeItem in Items)
+        {
+            expUpgradeItem.Visible.Value = false;
+        }
+        var item = Items.Where(item => !item.UpgradeFinish).ToList().GetRandomItem();
+
+        if(item == null)
+        {
+
+        }
+        else
+        {
+            item.Visible.Value = true;
+        }
+        item.Visible.Value = true;
+    }
 }

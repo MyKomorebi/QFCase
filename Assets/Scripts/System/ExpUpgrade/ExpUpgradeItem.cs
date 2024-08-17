@@ -6,36 +6,38 @@ using UnityEngine;
 
 public class ExpUpgradeItem 
 {
-    public EasyEvent Onchange = new EasyEvent();
+  
     public bool UpgradeFinish { get; set; } = false;
     public string Key { get; private set; }
 
 
-    public string Description { get; private set; }
+    public string Description =>mDescriptionFactory(CurrentLevel.Value);
 
-    public int Price { get; private set; }
+   public int MaxLevel { get;private set; }
+
+    public BindableProperty<int> CurrentLevel=new BindableProperty<int>(1);
+
+    public BindableProperty<bool>Visible=new BindableProperty<bool>();
+
+    public Func<int, string> mDescriptionFactory;
 
     public void Upgrade()
     {
-        mOnUpgrade?.Invoke(this);
-        UpgradeFinish = true;
-        Onchange.Trigger();
-       
-    }
-
-    public bool ConditionCheck()
-    {
-        if (mCondition != null)
+        CurrentLevel.Value++;
+        mOnUpgrade?.Invoke(this,CurrentLevel.Value);
+        if (CurrentLevel.Value > 10)
         {
-            return !UpgradeFinish && mCondition.Invoke(this);
+            UpgradeFinish = true;
         }
-        return !UpgradeFinish;
-
+      
+        
     }
 
-    private Action<ExpUpgradeItem> mOnUpgrade;
+   
 
-    private Func<ExpUpgradeItem, bool> mCondition;
+    private Action<ExpUpgradeItem,int> mOnUpgrade;
+
+   
 
     public ExpUpgradeItem WithKey(string key)
     {
@@ -43,27 +45,23 @@ public class ExpUpgradeItem
         return this;
     }
 
-    public ExpUpgradeItem WithDescription(string description)
+    public ExpUpgradeItem WithDescription(Func<int,string> descriptionFactory)
     {
-        Description = description;
+        mDescriptionFactory = descriptionFactory;
         return this;
     }
 
-    public ExpUpgradeItem WithPrice(int price)
-    {
-        Price = price;
-        return this;
-    }
+   
 
-    public ExpUpgradeItem OnUpgrade(Action<ExpUpgradeItem> onUpgrade)
+    public ExpUpgradeItem OnUpgrade(Action<ExpUpgradeItem,int> onUpgrade)
     {
         mOnUpgrade = onUpgrade;
         return this;
     }
-    public ExpUpgradeItem Condition(Func<ExpUpgradeItem, bool> condition)
+   
+    public ExpUpgradeItem WithMaxLevel(int maxLevel)
     {
-        mCondition = condition;
+        MaxLevel = maxLevel;
         return this;
     }
-
 }

@@ -21,7 +21,7 @@ namespace ProjectSurvivor
                        .Self(self =>
                        {
                            var itemCache = expUpgradeItem;
-                           self.GetComponentInChildren<Text>().text = expUpgradeItem.Description + $" {expUpgradeItem.Price} О­бщ";
+                         
                            self.onClick.AddListener(() =>
                            {
                                Time.timeScale = 1.0f;
@@ -30,27 +30,24 @@ namespace ProjectSurvivor
                                AudioKit.PlaySound("AbillityLevelUp");
                            });
                            var selfCache = self;
-
-                           expUpgradeItem.Onchange.Register(() =>
+                           itemCache.Visible.RegisterWithInitValue(visible =>
                            {
-                               if (itemCache.ConditionCheck())
+                               if (visible) 
                                {
+                                   self.GetComponentInChildren<Text>().text = expUpgradeItem.Description;
                                    selfCache.Show();
                                }
                                else
                                {
-                                   selfCache.Hide();
+                                 
+                                   selfCache.Hide() ;
                                }
+                           }).UnRegisterWhenGameObjectDestroyed(selfCache);
+
+                           itemCache.CurrentLevel.RegisterWithInitValue(lv =>
+                           {
+                               self.GetComponentInChildren<Text>().text = expUpgradeItem.Description;
                            }).UnRegisterWhenGameObjectDestroyed(gameObject);
-                           if (itemCache.ConditionCheck())
-                           {
-                               selfCache.Show();
-                           }
-                           else
-                           {
-                               selfCache.Hide();
-                           }
-                           
                        });
 
 
