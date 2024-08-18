@@ -6,12 +6,12 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 namespace ProjectSurvivor
 {
-	public partial class Enemy : ViewController
+	public partial class Enemy : ViewController,IEnemy
 	{
 		//血量
-		public float hp = 3;
+		public float HP = 3;
 		//移动速度
-		public float movementSpeed = 2f;
+		public float MovementSpeed = 2f;
 		void Start()
 		{
             //敌人总数加一
@@ -32,7 +32,7 @@ namespace ProjectSurvivor
                 //得到指向玩家的方向
                 var direction = (Player.Default.transform.position - transform.position).normalized;
                 //向玩家移动
-                SelfRigidbody2D.velocity = direction * movementSpeed;
+                SelfRigidbody2D.velocity = direction * MovementSpeed;
             }
             else
             {
@@ -43,7 +43,7 @@ namespace ProjectSurvivor
 		{
 			
             //如果敌人数量小于0
-			if (hp <= 0)
+			if (HP <= 0)
 			{
                 //销毁自己
 				this.DestroyGameObjGracefully();
@@ -57,7 +57,7 @@ namespace ProjectSurvivor
 
         private bool IgnoreHurt=false;
 
-        internal void Hurt(float value,bool force=false)
+        public void Hurt(float value,bool force=false)
         {
             if (IgnoreHurt&&!force) return;
             //播放伤害文字
@@ -70,7 +70,7 @@ namespace ProjectSurvivor
             ActionKit.Delay(0.2f, () =>
             {
                 //血量减少
-                this.hp -= value;
+                this.HP -= value;
                 //显示白色
                 this.Sprite.color = Color.white;
 
