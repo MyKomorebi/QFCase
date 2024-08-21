@@ -1,4 +1,4 @@
-// Generate Id:8cb5443e-fa2b-4e49-afbd-8551f1efd7ee
+// Generate Id:3448810b-1e40-4451-ad3b-faf030e372ce
 using UnityEngine;
 
 namespace ProjectSurvivor
@@ -6,9 +6,23 @@ namespace ProjectSurvivor
 	public partial class EnemyGenerator
 	{
 
-		public ProjectSurvivor.Enemy Enemy;
+		public ProjectSurvivor.Enemy EnemyA;
 
-		public ProjectSurvivor.Enemy EnemyFly;
+		public ProjectSurvivor.Enemy EnemyABoss;
+
+		public ProjectSurvivor.Enemy EnemyABossB;
+
+		public ProjectSurvivor.Enemy EnemyB;
+
+		public ProjectSurvivor.Enemy EnemyBBoss;
+
+		public ProjectSurvivor.Enemy EnemyBBossB;
+
+		public ProjectSurvivor.Enemy EnemyC;
+
+		public ProjectSurvivor.Enemy EnemyCBoss;
+
+		public ProjectSurvivor.Enemy EnemyCBossB;
 
 	}
 }

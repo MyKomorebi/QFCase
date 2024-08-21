@@ -6,10 +6,7 @@ namespace ProjectSurvivor
 {
     public partial class Simpleknife : ViewController
     {
-        void Start()
-        {
-            // Code Here
-        }
+        
         private float mCurrentSeconds = 0;
         void Update()
         {
@@ -45,7 +42,8 @@ namespace ProjectSurvivor
                                         if (hurtBox.Owner.CompareTag("Enemy"))
                                         {
 
-                                            hurtBox.Owner.GetComponent<Enemy>().Hurt(2);
+                                            hurtBox.Owner.GetComponent<Enemy>().Hurt(5);
+                                            self.DestroyGameObjGracefully();
                                         }
                                     }
                                 }).UnRegisterWhenGameObjectDestroyed(self);

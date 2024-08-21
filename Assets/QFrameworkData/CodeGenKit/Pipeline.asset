@@ -19,15 +19,18 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: SpriteRenderer
-      PathToRoot: Sprite
-      MemberName: Sprite
-    ScriptsFolder: Assets/Scripts/Game/Enemy
-    ClassName: EnemyMinBoss
+    - TypeName: Transform
+      PathToRoot: LB
+      MemberName: LB
+    - TypeName: Transform
+      PathToRoot: RT
+      MemberName: RT
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: CameraController
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class EnemyMinBoss : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class CameraController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:0c1ffe3e-9025-43fe-90ba-b208e46c434a\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class EnemyMinBoss\r\n\t{\r\n\r\n\t\tpublic
-      SpriteRenderer Sprite;\r\n\r\n\t\tpublic UnityEngine.Rigidbody2D SelfRigidbody2D;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:a1637278-6a32-4474-9951-1321d1ca7134\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class CameraController\r\n\t{\r\n\r\n\t\tpublic
+      Transform LB;\r\n\r\n\t\tpublic Transform RT;\r\n\r\n\t}\r\n}\r\n"

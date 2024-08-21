@@ -10,6 +10,10 @@ namespace ProjectSurvivor
         //µ¥Àý
         private static CameraController mDefault = null;
 
+        public static Transform LBTrans => mDefault.LB;
+
+        public static Transform RTTrans=> mDefault.RT;
+
         private void Awake()
         {
             mDefault = this;

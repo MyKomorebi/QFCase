@@ -160,5 +160,15 @@ namespace ProjectSurvivor
 
             }).Start(this);
         }
+
+        public void SetHPScale(float hPScale)
+        {
+           HP *= hPScale;
+        }
+
+        public void SetSpeedScale(float speedScale)
+        {
+           MovementSpeed *= speedScale;
+        }
     }
 }
