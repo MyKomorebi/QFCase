@@ -100,17 +100,16 @@ namespace ProjectSurvivor
                                 CameraController.RTTrans.position.y);
                         }
 
-                       
                         //生成敌人，设置位置，显示
                         currentWave.EnemyPrefab.Instantiate()
                             .Position(pos)
                             .Self(self =>
                             {
-                                var enemy=GetComponent<IEnemy>();
+                                var enemy=self.GetComponent<IEnemy>();
                                 enemy.SetSpeedScale(currentWave.SpeedScale);
                                 enemy.SetHPScale(currentWave.HPScale);
                             })
-                            .Show();
+                             .Show();
                     }
 
 
@@ -120,8 +119,7 @@ namespace ProjectSurvivor
                     currentWave = null;
                 }
             }
-           
-            
+
         }
     }
 }
