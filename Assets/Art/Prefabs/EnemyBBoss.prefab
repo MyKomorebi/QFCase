@@ -284,6 +284,7 @@ MonoBehaviour:
   SelfRigidbody2D: {fileID: 5915727121310800499}
   HP: 150
   MovementSpeed: 1
+  DissolveColor: {r: 0.9490196, g: 1, b: 0, a: 1}
 --- !u!114 &5915727121310800496
 MonoBehaviour:
   m_ObjectHideFlags: 0

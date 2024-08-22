@@ -61,6 +61,7 @@ MonoBehaviour:
   SelfRigidbody2D: {fileID: 4016107132210540480}
   HP: 15
   MovementSpeed: 1.5
+  DissolveColor: {r: 0.18039216, g: 1, b: 0, a: 1}
 --- !u!50 &4016107132210540480
 Rigidbody2D:
   serializedVersion: 4

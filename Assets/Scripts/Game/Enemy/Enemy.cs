@@ -2,7 +2,7 @@ using UnityEngine;
 using QFramework;
 using System;
 using static UnityEngine.EventSystems.EventTrigger;
-
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -12,6 +12,8 @@ namespace ProjectSurvivor
 		public float HP = 3;
 		//移动速度
 		public float MovementSpeed = 2f;
+
+        public Color DissolveColor = Color.yellow;
 		void Start()
 		{
             //敌人总数加一
@@ -47,7 +49,8 @@ namespace ProjectSurvivor
 			{
                 //销毁自己
 				this.DestroyGameObjGracefully();
-
+                FxController.Play(Sprite, DissolveColor);
+                AudioKit.PlaySound(Sfx.ENEMYDIE);
 				//触发经验值的掉落
 
                 Global.GeneratePowerUp(this.gameObject);
