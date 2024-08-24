@@ -20,6 +20,7 @@ namespace QAssetBundle
     {
         public const string BundleName = "sfx";
         public const string ABILLITYLEVELUP = "AbillityLevelUp";
+        public const string BALL = "Ball";
         public const string BOMB = "Bomb";
         public const string COIN = "Coin";
         public const string DIE = "Die";
@@ -30,6 +31,7 @@ namespace QAssetBundle
         public const string HIT = "Hit";
         public const string HP = "HP";
         public const string HURT = "Hurt";
+        public const string KNIFE = "Knife";
     }
     public class Uigameoverpanel_prefab
     {

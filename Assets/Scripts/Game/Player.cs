@@ -59,6 +59,20 @@ namespace ProjectSurvivor
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);//销毁对象时注销事件
 
 			
+			void UpdateHP()
+			{
+				HPValue.fillAmount = Global.HP.Value / (float)Global.MaxHP.Value;
+			}
+			Global.HP.RegisterWithInitValue(hp =>
+			{
+				UpdateHP();
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+			Global.MaxHP.RegisterWithInitValue(maxHP =>
+			{
+                UpdateHP();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
 
 		void Update()

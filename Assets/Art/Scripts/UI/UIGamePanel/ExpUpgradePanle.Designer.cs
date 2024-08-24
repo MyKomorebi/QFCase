@@ -1,5 +1,5 @@
 ﻿/****************************************************************************
- * 2024.8 USER-20240116VV
+ * 2024.8 枕头
  ****************************************************************************/
 
 using UnityEngine;
@@ -12,15 +12,11 @@ namespace ProjectSurvivor
 	{
 		[SerializeField] public UnityEngine.UI.Button BtnExpUpgradeItemTemplate;
 		[SerializeField] public RectTransform UpgradeRoot;
-		[SerializeField] public UnityEngine.UI.Button BtnUpgrade;
-		[SerializeField] public UnityEngine.UI.Button BtnSimpleDurationUpgrade;
 
 		public void Clear()
 		{
 			BtnExpUpgradeItemTemplate = null;
 			UpgradeRoot = null;
-			BtnUpgrade = null;
-			BtnSimpleDurationUpgrade = null;
 		}
 
 		public override string ComponentName

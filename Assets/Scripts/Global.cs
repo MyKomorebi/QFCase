@@ -21,9 +21,21 @@ namespace ProjectSurvivor
         //当前秒
         public static BindableProperty<float> CurrentSeconds = new BindableProperty<float>(0);
         //技能伤害
-        public static BindableProperty<float> SimpleAbillityDamage = new BindableProperty<float>(1);
+        public static BindableProperty<float> SimpleAbillityDamage = new(Config.InitSimpleSwordDamage);
         //技能持续时间
-        public static BindableProperty<float> SimpleAbillityDuration = new BindableProperty<float>(1.5f);
+        public static BindableProperty<float> SimpleAbillityDuration = new(Config.InitSimpleSwordDuration);
+        public static BindableProperty<int> SimpleSwordCount = new(Config.InitSimpleSwordCount);
+        public static BindableProperty<float> SimpleSwordRange = new(Config.InitSimpleSwordRange);
+
+        public static BindableProperty<float> SimpleKinfeDamage = new(Config.InitSimpleKnifeDamage);
+        public static BindableProperty<float> SimpleKinfeDuration = new(Config.InitSimpleKnifeDuration);
+        public static BindableProperty<int> SimpleKinfeCount = new(Config.InitSimpleKnifeCount);
+        public static BindableProperty<int> SimpleKinfeAttackCount = new BindableProperty<int>(1);
+
+        public static BindableProperty<float>RotateSwordDamage=new(Config.InitRotateSwordDamage);
+        public static BindableProperty<int> RotateSwordCount = new(Config.InitRotateSwordCount);
+        public static BindableProperty<float> RotateSwordSpeed = new(Config.InitRotateSwordSpeed);
+        public static BindableProperty<float>RotateSwordRange=new(Config.InitRotateSwordRange);
         //经验概率
         public static BindableProperty<float> Expercent = new BindableProperty<float>(0.3f);
         //金币概率
@@ -156,9 +168,23 @@ namespace ProjectSurvivor
             //当前秒重置
             CurrentSeconds.Value = 0;
             //当前技能伤害重置
-            SimpleAbillityDamage.Value = 1;
+            SimpleAbillityDamage.Value = Config.InitSimpleSwordDamage;
             //当前技能持续时间重置
-            SimpleAbillityDuration.Value = 1.5f;
+            SimpleAbillityDuration.Value =Config.InitSimpleSwordDuration;
+            SimpleSwordCount.Value= Config.InitSimpleSwordCount;
+            SimpleSwordRange.Value= Config.InitSimpleSwordRange;
+
+            SimpleKinfeDamage.Value = Config.InitSimpleKnifeDamage;
+            SimpleKinfeDuration.Value=Config.InitSimpleKnifeDuration;
+            SimpleKinfeCount.Value= Config.InitSimpleKnifeCount;
+            SimpleKinfeAttackCount.Value = 1;
+
+         RotateSwordDamage.Value=Config.InitRotateSwordDamage;
+            RotateSwordCount.Value= Config.InitRotateSwordCount;
+            RotateSwordSpeed.Value= Config.InitRotateSwordSpeed;
+            RotateSwordRange.Value= Config.InitRotateSwordRange;
+
+
             //敌人数量重置
             EnemyGenerator.EnemyCount.Value = 0;
 

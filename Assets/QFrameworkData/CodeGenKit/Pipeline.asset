@@ -19,15 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: SpriteRenderer
-      PathToRoot: EnemyDieFx
-      MemberName: EnemyDieFx
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: FxController
+    - TypeName: UnityEngine.CircleCollider2D
+      PathToRoot: Sword
+      MemberName: Sword
+    ScriptsFolder: Assets\Scripts\Game
+    ClassName: RotateSword
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class FxController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class RotateSword : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:8bb5c218-a7eb-4f3f-9be5-1893ad6594ac\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class FxController\r\n\t{\r\n\r\n\t\tpublic
-      SpriteRenderer EnemyDieFx;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:a1ed4dbe-2712-4874-8cf5-98c2970087dd\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class RotateSword\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.CircleCollider2D Sword;\r\n\r\n\t}\r\n}\r\n"

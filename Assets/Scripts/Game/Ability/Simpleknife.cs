@@ -1,6 +1,7 @@
 using UnityEngine;
 using QFramework;
 using System.Linq;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -12,55 +13,78 @@ namespace ProjectSurvivor
         {
             mCurrentSeconds += Time.deltaTime;
 
-            if (mCurrentSeconds >= 1.0f)
+            if (mCurrentSeconds >=Global.SimpleAbillityDuration.Value)
             {
                 mCurrentSeconds = 0.0f;
                 if (Player.Default)
                 {
+                    var i = 0;
                     //获取所有的敌人
-                    var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-                    //遍历获取的敌人
-                    var enemy = enemies.OrderBy(enemy => (Player.Default.transform.position - enemy.transform.position).magnitude).FirstOrDefault();
-
-                    if (enemy)
+                    var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
+                    .OrderBy(enemy => Player.Default.Distance2D(enemy))
+                      .Take(Global.SimpleKinfeCount.Value);
+                    foreach (Enemy enemy in enemies)
                     {
-                        Knife.Instantiate()
-                            .Position(this.Position())
-                            .Show()
-                            .Self(self =>
+                        if (i < 4)
+                        {
+                            ActionKit.DelayFrame(11 * i, () =>
                             {
-                                var direction = (enemy.Position() - Player.Default.Position()).normalized;
-                                var rigidbody2D = self.GetComponent<Rigidbody2D>();
-                                rigidbody2D.velocity = (direction * 10);
-
-                                self.OnTriggerEnter2DEvent(collider =>
+                                AudioKit.PlaySound(Sfx.KNIFE);
+                            })
+                               .StartGlobal();
+                            i++;
+                        }
+                     
+                        if (enemy)
+                        {
+                            Knife.Instantiate()
+                                .Position(this.Position())
+                                .Show()
+                                .Self(self =>
                                 {
-                                    var hurtBox = collider.GetComponent<HurtBox>();
+                                   
+                                    var selfCache = self;
+                                    var direction = enemy.NormalizedDirection2DFrom(Player.Default);
+                                    self.transform.up=direction;
+                                    var rigidbody2D = self.GetComponent<Rigidbody2D>();
+                                    rigidbody2D.velocity = direction * 10;
 
-                                    if (hurtBox)
+                                    var attackCount = 0;
+                                    self.OnTriggerEnter2DEvent(collider =>
                                     {
-                                        if (hurtBox.Owner.CompareTag("Enemy"))
+                                        var hurtBox = collider.GetComponent<HurtBox>();
+
+                                        if (hurtBox)
                                         {
+                                            if (hurtBox.Owner.CompareTag("Enemy"))
+                                            {
 
-                                            hurtBox.Owner.GetComponent<Enemy>().Hurt(5);
-                                            self.DestroyGameObjGracefully();
+                                                hurtBox.Owner.GetComponent<Enemy>()
+                                                .Hurt(Global.SimpleKinfeDamage.Value);
+                                                attackCount++;
+                                                if(attackCount >= Global.SimpleKinfeAttackCount.Value)
+                                                {
+                                                    selfCache.DestroyGameObjGracefully();
+                                                }
+                                              
+                                            }
                                         }
-                                    }
-                                }).UnRegisterWhenGameObjectDestroyed(self);
+                                    }).UnRegisterWhenGameObjectDestroyed(self);
 
 
-                                ActionKit.OnUpdate.Register(() =>
-                                {
-                                    if (Player.Default)
+                                    ActionKit.OnUpdate.Register(() =>
                                     {
-                                        if ((Player.Default.Position() - self.Position()).magnitude > 20)
+                                        if (Player.Default)
                                         {
-                                            self.DestroyGameObjGracefully();
+                                            if (Player.Default.Distance2D(selfCache) > 20)
+                                            {
+                                                selfCache.DestroyGameObjGracefully();
+                                            }
                                         }
-                                    }
-                                }).UnRegisterWhenGameObjectDestroyed(self);
-                            });
-                       
+                                    }).UnRegisterWhenGameObjectDestroyed(self);
+                                });
+
+                        }
                     }
                 }
                

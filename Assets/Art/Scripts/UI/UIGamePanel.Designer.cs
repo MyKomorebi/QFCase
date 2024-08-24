@@ -5,15 +5,11 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-	// Generate Id:f34bd575-b94c-4fe8-bd39-0ce8e0d5630d
+	// Generate Id:2673bf60-5c4d-450f-90ec-0550e634b5da
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
 		
-		[SerializeField]
-		public UnityEngine.UI.Text HPText;
-		[SerializeField]
-		public UnityEngine.UI.Text ExpText;
 		[SerializeField]
 		public UnityEngine.UI.Text LevelText;
 		[SerializeField]
@@ -24,18 +20,19 @@ namespace ProjectSurvivor
 		public UnityEngine.UI.Text CoinText;
 		[SerializeField]
 		public ExpUpgradePanle ExpUpgradePanle;
+		[SerializeField]
+		public UnityEngine.UI.Image ExpValue;
 		
 		private UIGamePanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
-			HPText = null;
-			ExpText = null;
 			LevelText = null;
 			TimeText = null;
 			EnemyCountText = null;
 			CoinText = null;
 			ExpUpgradePanle = null;
+			ExpValue = null;
 			
 			mData = null;
 		}

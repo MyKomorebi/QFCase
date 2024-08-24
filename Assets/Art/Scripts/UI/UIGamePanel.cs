@@ -14,15 +14,7 @@ namespace ProjectSurvivor
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
 			// please add init code here
 
-			Global.HP.RegisterWithInitValue(hp=>
-			{
-				HPText.text = "HP:" + hp + "/" + Global.MaxHP.Value;
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);
-
-			Global.MaxHP.RegisterWithInitValue(maxHp =>
-			{
-                HPText.text = "HP:" + Global.HP.Value + "/" + maxHp;
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+			
 
 			EnemyGenerator.EnemyCount.RegisterWithInitValue(enemyCount =>
 			{
@@ -49,7 +41,8 @@ namespace ProjectSurvivor
 			//初始化，数值改变时，执行事件
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
-				ExpText.text = "经验值：(" + exp+"/"+Global.ExpToNext()+")";
+				ExpValue.fillAmount = exp /(float) Global.ExpToNext();
+				
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
             //初始化，数值改变时，执行事件
             Global.Level.RegisterWithInitValue(lv =>

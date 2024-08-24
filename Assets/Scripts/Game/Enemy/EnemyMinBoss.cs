@@ -143,7 +143,7 @@ namespace ProjectSurvivor
         {
             if (IgnoreHurt && !force) return;
             //播放伤害文字
-            FloatingTextController.Play(transform.position, value.ToString());
+            FloatingTextController.Play(transform.position, value.ToString("0"));
             //显示红色
             Sprite.color = Color.red;
             //播放受伤动画

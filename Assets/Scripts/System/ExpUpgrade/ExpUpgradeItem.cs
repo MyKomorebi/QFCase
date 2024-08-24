@@ -11,11 +11,11 @@ public class ExpUpgradeItem
     public string Key { get; private set; }
 
 
-    public string Description =>mDescriptionFactory(CurrentLevel.Value);
+    public string Description =>mDescriptionFactory(CurrentLevel.Value+1);
 
    public int MaxLevel { get;private set; }
 
-    public BindableProperty<int> CurrentLevel=new BindableProperty<int>(1);
+    public BindableProperty<int> CurrentLevel=new BindableProperty<int>(0);
 
     public BindableProperty<bool>Visible=new BindableProperty<bool>();
 
