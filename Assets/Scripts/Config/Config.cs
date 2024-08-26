@@ -22,5 +22,12 @@ namespace ProjectSurvivor
         public const float InitRotateSwordSpeed = 2f;
         public const float InitRotateSwordRange = 2f;
 
+        public const float InitBasketBallDamage = 5f;
+        public const float InitBasketBallSpeed = 10f;
+        public const int InitBasketBallCount = 1;
+
+        public const float InitBombDamage = 10f;
+        public const float InitBombPercent = 0.05f;
+
     }
 }

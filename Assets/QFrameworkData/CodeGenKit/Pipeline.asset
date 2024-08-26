@@ -19,15 +19,30 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: UnityEngine.CircleCollider2D
-      PathToRoot: Sword
-      MemberName: Sword
-    ScriptsFolder: Assets\Scripts\Game
-    ClassName: RotateSword
+    - TypeName: ProjectSurvivor.SimpleSword
+      PathToRoot: SimpleSword
+      MemberName: SimpleSword
+    - TypeName: ProjectSurvivor.RotateSword
+      PathToRoot: Rotateword
+      MemberName: Rotateword
+    - TypeName: ProjectSurvivor.SimpleAxe
+      PathToRoot: SimpleAxe
+      MemberName: SimpleAxe
+    - TypeName: ProjectSurvivor.Simpleknife
+      PathToRoot: Simpleknife
+      MemberName: Simpleknife
+    - TypeName: ProjectSurvivor.BasketBallAbility
+      PathToRoot: BasketBallAbility
+      MemberName: BasketBallAbility
+    ScriptsFolder: Assets/Scripts/Game/Ability
+    ClassName: AbilityController
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class RotateSword : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class AbilityController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:a1ed4dbe-2712-4874-8cf5-98c2970087dd\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class RotateSword\r\n\t{\r\n\r\n\t\tpublic
-      UnityEngine.CircleCollider2D Sword;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:8f0c8298-0924-4862-9e98-8af883d831dd\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class AbilityController\r\n\t{\r\n\r\n\t\tpublic
+      ProjectSurvivor.SimpleSword SimpleSword;\r\n\r\n\t\tpublic ProjectSurvivor.RotateSword
+      Rotateword;\r\n\r\n\t\tpublic ProjectSurvivor.SimpleAxe SimpleAxe;\r\n\r\n\t\tpublic
+      ProjectSurvivor.Simpleknife Simpleknife;\r\n\r\n\t\tpublic ProjectSurvivor.BasketBallAbility
+      BasketBallAbility;\r\n\r\n\t}\r\n}\r\n"

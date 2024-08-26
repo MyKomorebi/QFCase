@@ -25,6 +25,7 @@ namespace ProjectSurvivor
                 }
                 //播放爆炸音效
                 AudioKit.PlaySound("Bomb");
+                UIGamePanel.FlashScreen.Trigger();
                 //摄像机晃动
                 CameraController.Shake();
                 //销毁自己

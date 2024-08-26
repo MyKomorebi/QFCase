@@ -6,7 +6,12 @@ using UnityEngine;
 
 public class ExpUpgradeItem 
 {
-  
+
+    public ExpUpgradeItem(bool isWeapon)
+    {
+        IsWeapon = isWeapon;
+    }
+  public bool IsWeapon=false;
     public bool UpgradeFinish { get; set; } = false;
     public string Key { get; private set; }
 

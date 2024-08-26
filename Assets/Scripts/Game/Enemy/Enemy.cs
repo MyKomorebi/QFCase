@@ -28,18 +28,22 @@ namespace ProjectSurvivor
 
         private void FixedUpdate()
         {
+            if (!IgnoreHurt)
+            {
+                if (Player.Default)
+                {
+                    //得到指向玩家的方向
+                    var direction = (Player.Default.transform.position - transform.position).normalized;
+                    //向玩家移动
+                    SelfRigidbody2D.velocity = direction * MovementSpeed;
+                }
+                else
+                {
+                    SelfRigidbody2D.velocity = Vector2.zero;
+                }
+            }
             //如果玩家存在
-            if (Player.Default)
-            {
-                //得到指向玩家的方向
-                var direction = (Player.Default.transform.position - transform.position).normalized;
-                //向玩家移动
-                SelfRigidbody2D.velocity = direction * MovementSpeed;
-            }
-            else
-            {
-                SelfRigidbody2D.velocity=Vector2.zero;
-            }
+            
         }
         void Update()
 		{
@@ -63,6 +67,8 @@ namespace ProjectSurvivor
         public void Hurt(float value,bool force=false)
         {
             if (IgnoreHurt&&!force) return;
+            IgnoreHurt = true;
+            SelfRigidbody2D.velocity = Vector2.zero;
             //播放伤害文字
             FloatingTextController.Play(transform.position,value.ToString("0"));
             //显示红色

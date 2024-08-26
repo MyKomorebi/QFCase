@@ -9,6 +9,8 @@ namespace ProjectSurvivor
 	}
 	public partial class UIGamePanel : UIPanel
 	{
+
+		public static EasyEvent FlashScreen = new EasyEvent();
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
@@ -96,6 +98,18 @@ namespace ProjectSurvivor
 
 				CoinText.text = "½ð±Ò:" + coin;
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+			FlashScreen.Register(() =>
+			{
+                ActionKit
+                   .Sequence()
+                   .Lerp(0, 0.5f, 0.1f,
+                       alpha => ScreenColor.ColorAlpha(alpha))
+                   .Lerp(0.5f, 0, 0.2f,
+                       alpha => ScreenColor.ColorAlpha(alpha),
+                       () => ScreenColor.ColorAlpha(0))
+                   .Start(this);
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 		
 		protected override void OnOpen(IUIData uiData = null)
