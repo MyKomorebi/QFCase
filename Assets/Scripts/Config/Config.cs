@@ -29,5 +29,10 @@ namespace ProjectSurvivor
         public const float InitBombDamage = 10f;
         public const float InitBombPercent = 0.05f;
 
+        public const float InitCriticalRate = 0.05f;
+        public const float InitCollectableArea = 1f;
+
+
+
     }
 }

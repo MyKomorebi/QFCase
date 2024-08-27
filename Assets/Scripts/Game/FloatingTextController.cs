@@ -17,7 +17,7 @@ namespace ProjectSurvivor
         /// </summary>
         /// <param name="postion">Î»ÖÃ</param>
         /// <param name="text">ÄÚÈÝ</param>
-        public static void Play(Vector2 postion, string text)
+        public static void Play(Vector2 postion, string text ,bool critical=false)
         {
             mDefault.FloatingText.InstantiateWithParent(mDefault.transform)
                 .Position(postion.x, postion.y)
@@ -28,6 +28,10 @@ namespace ProjectSurvivor
                 var textTrans = f.transform.Find("Text");
                 var textcomp = textTrans.GetComponent<Text>();
                 textcomp.text = text;
+                  if(critical )
+                  {
+                      textcomp.color = Color.red;
+                  }
                ActionKit.Sequence().Lerp(0, 0.5f, 0.5f, p =>
                {
                   

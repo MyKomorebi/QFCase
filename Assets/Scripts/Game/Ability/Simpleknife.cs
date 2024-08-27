@@ -22,7 +22,7 @@ namespace ProjectSurvivor
                     //获取所有的敌人
                     var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
                     .OrderBy(enemy => Player.Default.Distance2D(enemy))
-                      .Take(Global.SimpleKinfeCount.Value);
+                      .Take(Global.SimpleKinfeCount.Value+Global.AdditionalFlyThingCount.Value);
                     foreach (Enemy enemy in enemies)
                     {
                         if (i < 4)
@@ -58,9 +58,9 @@ namespace ProjectSurvivor
                                         {
                                             if (hurtBox.Owner.CompareTag("Enemy"))
                                             {
-
-                                                hurtBox.Owner.GetComponent<Enemy>()
-                                                .Hurt(Global.SimpleKinfeDamage.Value);
+                                                DamageSystem.CalculateDemage(Global.SimpleKinfeDamage.Value, 
+                                                    hurtBox.Owner.GetComponent<Enemy>());
+                                               
                                                 attackCount++;
                                                 if(attackCount >= Global.SimpleKinfeAttackCount.Value)
                                                 {

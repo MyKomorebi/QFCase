@@ -1,6 +1,7 @@
 using QFramework;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 namespace ProjectSurvivor
@@ -49,6 +50,14 @@ namespace ProjectSurvivor
         public static BindableProperty<float> BasketBallDamage = new(Config.InitBasketBallDamage);
         public static BindableProperty<float> BasketBallSpeed = new(Config.InitBasketBallSpeed);
         public static BindableProperty<int> BasketBallCount = new(Config.InitBasketBallCount);
+
+        public static BindableProperty<float>CriticalRate=new BindableProperty<float>(Config.InitCriticalRate);
+        public static BindableProperty<float>DamageRate=new BindableProperty<float>(1);
+        public static BindableProperty<int>AdditionalFlyThingCount=new BindableProperty<int>(0);
+
+        public static BindableProperty<float> CollectableArea = new(Config.InitCollectableArea);
+        public static BindableProperty<float> MovementSpeedRate = new BindableProperty<float>(1.0f);
+        public static BindableProperty<float> AdditionalExpPercent = new(0);
         //经验概率
         public static BindableProperty<float> Expercent = new BindableProperty<float>(0.3f);
         //金币概率
@@ -112,13 +121,21 @@ namespace ProjectSurvivor
         /// 掉落物生成
         /// </summary>
         /// <param name="gameObject">生成对象</param>
-        public static void GeneratePowerUp(GameObject gameObject)
+        public static void GeneratePowerUp(GameObject gameObject,bool genTreasureChest)
         {
-          
+          if(genTreasureChest)
+            {
+                PowerUpManager.Default.TreasureChest
+                    .Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+                return;
+
+            }
             //经验值掉落
             var percent = Random.Range(0, 1f);
 
-            if (percent < Expercent.Value)
+            if (percent < Expercent.Value+AdditionalExpPercent.Value)
             {
                 PowerUpManager.Default.Exp.Instantiate()
                    .Position(gameObject.Position())
@@ -215,7 +232,14 @@ namespace ProjectSurvivor
             BasketBallCount.Value = Config.InitBasketBallCount;
             BasketBallSpeed.Value = Config.InitBasketBallSpeed;
 
+            CriticalRate.Value = Config.InitCriticalRate;
+            AdditionalFlyThingCount.Value = 0;
 
+            CollectableArea.Value = Config.InitCollectableArea;
+            DamageRate.Value = 1;
+            AdditionalExpPercent.Value = 0;
+
+            MovementSpeedRate.Value = 1;
             //敌人数量重置
             EnemyGenerator.EnemyCount.Value = 0;
 

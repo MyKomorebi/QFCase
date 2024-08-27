@@ -11,6 +11,8 @@ namespace ProjectSurvivor
 	{
 
 		public static EasyEvent FlashScreen = new EasyEvent();
+
+		public static EasyEvent OpenTreasurePanel = new EasyEvent();
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
@@ -110,6 +112,11 @@ namespace ProjectSurvivor
                    .Start(this);
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
+			OpenTreasurePanel.Register(() =>
+			{
+				Time.timeScale = 0.0f;
+				TreasureChestPanel.Show();
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 		
 		protected override void OnOpen(IUIData uiData = null)

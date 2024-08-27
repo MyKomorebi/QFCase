@@ -19,7 +19,9 @@ namespace ProjectSurvivor
 					if (hurtBox.Owner.CompareTag("Enemy"))
 					{
 						var enemy=hurtBox.Owner.GetComponent<IEnemy>();
-						enemy.Hurt(Global.BasketBallDamage.Value);
+						DamageSystem.CalculateDemage(Global.BasketBallDamage.Value, enemy);
+						
+						
                         if (Random.Range(0, 1.0f) < 0.5f&&collider&&collider.attachedRigidbody&&Player.Default)
                         {
                             collider.attachedRigidbody.velocity =

@@ -19,30 +19,32 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: ProjectSurvivor.SimpleSword
-      PathToRoot: SimpleSword
-      MemberName: SimpleSword
-    - TypeName: ProjectSurvivor.RotateSword
-      PathToRoot: Rotateword
-      MemberName: Rotateword
-    - TypeName: ProjectSurvivor.SimpleAxe
-      PathToRoot: SimpleAxe
-      MemberName: SimpleAxe
-    - TypeName: ProjectSurvivor.Simpleknife
-      PathToRoot: Simpleknife
-      MemberName: Simpleknife
-    - TypeName: ProjectSurvivor.BasketBallAbility
-      PathToRoot: BasketBallAbility
-      MemberName: BasketBallAbility
-    ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: AbilityController
+    - TypeName: ProjectSurvivor.Exp
+      PathToRoot: Exp
+      MemberName: Exp
+    - TypeName: ProjectSurvivor.Coin
+      PathToRoot: Coin
+      MemberName: Coin
+    - TypeName: ProjectSurvivor.HP
+      PathToRoot: HP
+      MemberName: HP
+    - TypeName: CircleCollider2D
+      PathToRoot: Bomb
+      MemberName: Bomb
+    - TypeName: ProjectSurvivor.GetAllExp
+      PathToRoot: GetAllExp
+      MemberName: GetAllExp
+    - TypeName: CircleCollider2D
+      PathToRoot: TreasureChest
+      MemberName: TreasureChest
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: PowerUpManager
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class AbilityController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class PowerUpManager : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:8f0c8298-0924-4862-9e98-8af883d831dd\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class AbilityController\r\n\t{\r\n\r\n\t\tpublic
-      ProjectSurvivor.SimpleSword SimpleSword;\r\n\r\n\t\tpublic ProjectSurvivor.RotateSword
-      Rotateword;\r\n\r\n\t\tpublic ProjectSurvivor.SimpleAxe SimpleAxe;\r\n\r\n\t\tpublic
-      ProjectSurvivor.Simpleknife Simpleknife;\r\n\r\n\t\tpublic ProjectSurvivor.BasketBallAbility
-      BasketBallAbility;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:4f2c72f4-9d79-4dc8-a459-4204da14538a\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class PowerUpManager\r\n\t{\r\n\r\n\t\tpublic
+      ProjectSurvivor.Exp Exp;\r\n\r\n\t\tpublic ProjectSurvivor.Coin Coin;\r\n\r\n\t\tpublic
+      ProjectSurvivor.HP HP;\r\n\r\n\t\tpublic CircleCollider2D Bomb;\r\n\r\n\t\tpublic
+      ProjectSurvivor.GetAllExp GetAllExp;\r\n\r\n\t\tpublic CircleCollider2D TreasureChest;\r\n\r\n\t}\r\n}\r\n"

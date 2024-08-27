@@ -10,15 +10,23 @@ namespace ProjectSurvivor
 
         private void Start()
         {
-            Global.BasketBallCount.RegisterWithInitValue(count =>
+
+            void CreateBall()
             {
-                if(mBalls.Count<count)
+                mBalls.Add(Ball.Instantiate().SyncPosition2DFrom(this)
+                    .Show());
+            }
+            void CreateBalls()
+            {
+                var ballCountCreate = Global.BasketBallCount.Value + Global.AdditionalFlyThingCount.Value - mBalls.Count;
+                for (var i = 0; i < ballCountCreate; i++)
                 {
-                    mBalls.Add(Ball.Instantiate()
-                        .SyncPosition2DFrom(this)
-                        .Show());
+                    CreateBall();
                 }
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            }
+            Global.BasketBallCount.Or(Global.AdditionalFlyThingCount).Register((CreateBalls)
+            ).UnRegisterWhenGameObjectDestroyed(gameObject);
+         CreateBalls();
         }
     }
 }

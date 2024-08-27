@@ -3,22 +3,19 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-	public partial class Coin : GameplayObject
+	public partial class TreasureChest : GameplayObject
 	{
         protected override Collider2D Collider2D => SelfCollider2D;
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            //å¦‚æœè§¦ç¢°åˆ°ç©å®¶çš„ç¢°æ’åŒºåŸŸ
             if (collision.GetComponent<CollectableArea>())
             {
-                //æ’­æ”¾é‡‘å¸éŸ³æ•ˆ
-                AudioKit.PlaySound("Coin");
-                
-                //é‡‘å¸å¢åŠ 
-                Global.Coin.Value++;
-                //é”€æ¯è‡ªå·±
+                UIGamePanel.OpenTreasurePanel.Trigger();
+                //²¥·ÅÊÕ¼¯ËùÓĞ¾­ÑéÒôĞ§
+                AudioKit.PlaySound("TreasuerChest");
+                //Ïú»Ù×Ô¼º
                 this.DestroyGameObjGracefully();
-            } 
+            }
         }
     }
 }

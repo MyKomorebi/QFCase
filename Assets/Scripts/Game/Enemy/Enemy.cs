@@ -14,6 +14,8 @@ namespace ProjectSurvivor
 		public float MovementSpeed = 2f;
 
         public Color DissolveColor = Color.yellow;
+
+        public bool TreasureChestEnemy=false;
 		void Start()
 		{
             //敌人总数加一
@@ -57,20 +59,20 @@ namespace ProjectSurvivor
                 AudioKit.PlaySound(Sfx.ENEMYDIE);
 				//触发经验值的掉落
 
-                Global.GeneratePowerUp(this.gameObject);
+                Global.GeneratePowerUp(this.gameObject,TreasureChestEnemy);
 			}
 		
 		}
 
         private bool IgnoreHurt=false;
 
-        public void Hurt(float value,bool force=false)
+        public void Hurt(float value,bool force=false, bool critical = false)
         {
             if (IgnoreHurt&&!force) return;
             IgnoreHurt = true;
             SelfRigidbody2D.velocity = Vector2.zero;
             //播放伤害文字
-            FloatingTextController.Play(transform.position,value.ToString("0"));
+            FloatingTextController.Play(transform.position,value.ToString("0"),critical);
             //显示红色
             Sprite.color = Color.red;
             //播放受伤动画

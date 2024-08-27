@@ -17,7 +17,7 @@ namespace ProjectSurvivor
         //移动速度
         public float MovementSpeed = 2f;
 
-
+       
         public FSM<States>FSM=new FSM<States>();
         void Start()
         {
@@ -129,7 +129,7 @@ namespace ProjectSurvivor
 
                 //触发经验值的掉落
 
-                Global.GeneratePowerUp(this.gameObject);
+                Global.GeneratePowerUp(this.gameObject,true);
             }
 
         }
@@ -139,11 +139,11 @@ namespace ProjectSurvivor
             EnemyGenerator.EnemyCount.Value--;
         }
         private bool IgnoreHurt = false;
-        public void Hurt(float value, bool force = false)
+        public void Hurt(float value, bool force = false, bool critical = false)
         {
             if (IgnoreHurt && !force) return;
             //播放伤害文字
-            FloatingTextController.Play(transform.position, value.ToString("0"));
+            FloatingTextController.Play(transform.position, value.ToString("0"),critical);
             //显示红色
             Sprite.color = Color.red;
             //播放受伤动画

@@ -3,8 +3,9 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-    public partial class Bomb : ViewController
+    public partial class Bomb : GameplayObject
     {
+        protected override Collider2D Collider2D => SelfCollider2D;
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.GetComponent<CollectableArea>())

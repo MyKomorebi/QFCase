@@ -1,4 +1,4 @@
-// Generate Id:07303b19-6914-45c6-81dd-e3412e610508
+// Generate Id:4f2c72f4-9d79-4dc8-a459-4204da14538a
 using UnityEngine;
 
 namespace ProjectSurvivor
@@ -15,6 +15,8 @@ namespace ProjectSurvivor
 		public CircleCollider2D Bomb;
 
 		public ProjectSurvivor.GetAllExp GetAllExp;
+
+		public CircleCollider2D TreasureChest;
 
 	}
 }

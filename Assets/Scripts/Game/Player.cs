@@ -82,7 +82,8 @@ namespace ProjectSurvivor
 			//获取垂直输入
 			var vertical = Input.GetAxisRaw("Vertical");
 			//归一化向量
-			var targetVelocity = new Vector2(horizontal, vertical).normalized*movementSpeed;
+			var targetVelocity = new Vector2(horizontal, vertical).normalized*
+				(movementSpeed*Global.MovementSpeedRate.Value);
 			//为刚体添加速度
 			SelfRigidbody2D.velocity =Vector2.Lerp(SelfRigidbody2D.velocity,targetVelocity,1-Mathf.Exp(-Time.deltaTime*5));
 		}

@@ -233,6 +233,7 @@ MonoBehaviour:
   HP: 300
   MovementSpeed: 2.5
   DissolveColor: {r: 0.9490196, g: 1, b: 0, a: 1}
+  TreasureChestEnemy: 1
 --- !u!114 &8188360436189901195
 MonoBehaviour:
   m_ObjectHideFlags: 0

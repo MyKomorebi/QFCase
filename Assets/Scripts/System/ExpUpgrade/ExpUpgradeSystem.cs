@@ -164,6 +164,209 @@ public class ExpUpgradeSystem : AbstractSystem
 
                 }
             });
+
+        Add(new ExpUpgradeItem(false)
+               .WithKey("simple_critical")
+               .WithMaxLevel(5)
+               .WithDescription(lv =>
+               {
+                   return lv switch
+                   {
+                       1 => $"暴击Lv{lv}:\n每次伤害 15% 概率暴击",
+                       2 => $"暴击Lv{lv}:\n每次伤害 28% 概率暴击",
+                       3 => $"暴击Lv{lv}:\n每次伤害 43% 概率暴击",
+                       4 => $"暴击Lv{lv}:\n每次伤害 50% 概率暴击",
+                       5 => $"暴击Lv{lv}:\n每次伤害 80% 概率暴击",
+                       _ => null
+                   };
+               })
+               .OnUpgrade((_, lv) =>
+               {
+                   switch (lv)
+                   {
+                       case 1:
+                           Global.CriticalRate.Value = 0.15f;
+                           break;
+                       case 2:
+                           Global.CriticalRate.Value = 0.28f;
+                           break;
+                       case 3:
+                           Global.CriticalRate.Value = 0.43f;
+                           break;
+                       case 4:
+                           Global.CriticalRate.Value = 0.5f;
+                           break;
+                       case 5:
+                           Global.CriticalRate.Value = 0.8f;
+                           break;
+                   }
+               }));
+        Add(new ExpUpgradeItem(false)
+                .WithKey("damage_rate")
+                .WithMaxLevel(5)
+                .WithDescription(lv =>
+                {
+                    return lv switch
+                    {
+                        1 => $"伤害率Lv{lv}:\n增加 20% 额外伤害",
+                        2 => $"伤害率Lv{lv}:\n增加 40% 额外伤害",
+                        3 => $"伤害率Lv{lv}:\n增加 60% 额外伤害",
+                        4 => $"伤害率Lv{lv}:\n增加 80% 额外伤害",
+                        5 => $"伤害率Lv{lv}:\n增加 100% 额外伤害",
+
+                        _ => null
+                    };
+                })
+                .OnUpgrade((_, lv) =>
+                {
+                    switch (lv)
+                    {
+                        case 1:
+                            Global.DamageRate.Value = 1.2f;
+                            break;
+                        case 2:
+                            Global.DamageRate.Value = 1.4f;
+                            break;
+                        case 3:
+                            Global.DamageRate.Value = 1.6f;
+                            break;
+                        case 4:
+                            Global.DamageRate.Value = 1.8f;
+                            break;
+                        case 5:
+                            Global.DamageRate.Value = 2f;
+                            break;
+                    }
+                }));
+        Add(new ExpUpgradeItem(false)
+               .WithKey("simple_fly_count")
+               .WithMaxLevel(3)
+               .WithDescription(lv =>
+               {
+                   return lv switch
+                   {
+                       1 => $"飞射物Lv{lv}:\n额外增加 1 个飞射物",
+                       2 => $"飞射物Lv{lv}:\n额外增加 2 个飞射物",
+                       3 => $"飞射物Lv{lv}:\n额外增加 3 个飞射物",
+                       _ => null
+                   };
+               })
+               .OnUpgrade((_, lv) =>
+               {
+                   switch (lv)
+                   {
+                       case 1:
+                           Global.AdditionalFlyThingCount.Value++;
+                           break;
+                       case 2:
+                           Global.AdditionalFlyThingCount.Value++;
+                           break;
+                       case 3:
+                           Global.AdditionalFlyThingCount.Value++;
+                           break;
+                   }
+               }));
+        Add(new ExpUpgradeItem(false)
+               .WithKey("movement_speed_rate")
+               .WithMaxLevel(5)
+               .WithDescription(lv =>
+               {
+                   return lv switch
+                   {
+                       1 => $"移动速度Lv{lv}:\n增加 25% 移动速度",
+                       2 => $"移动速度Lv{lv}:\n增加 50% 移动速度",
+                       3 => $"移动速度Lv{lv}:\n增加 75% 移动速度",
+                       4 => $"移动速度Lv{lv}:\n增加 100% 移动速度",
+                       5 => $"移动速度Lv{lv}:\n增加 150% 移动速度",
+
+                       _ => null
+                   };
+               })
+               .OnUpgrade((_, lv) =>
+               {
+                   switch (lv)
+                   {
+                       case 1:
+                           Global.MovementSpeedRate.Value = 1.25f;
+                           break;
+                       case 2:
+                           Global.MovementSpeedRate.Value = 1.5f;
+                           break;
+                       case 3:
+                           Global.MovementSpeedRate.Value = 1.75f;
+                           break;
+                       case 4:
+                           Global.MovementSpeedRate.Value = 2f;
+                           break;
+                       case 5:
+                           Global.MovementSpeedRate.Value = 2.5f;
+                           break;
+                   }
+               }));
+        Add(new ExpUpgradeItem(false)
+              .WithKey("simple_collectable_area")
+              .WithMaxLevel(3)
+              .WithDescription(lv =>
+              {
+                  return lv switch
+                  {
+                      1 => $"拾取范围Lv{lv}:\n额外增加 100% 范围",
+                      2 => $"拾取范围Lv{lv}:\n额外增加 200% 范围",
+                      3 => $"拾取范围Lv{lv}:\n额外增加 300% 范围",
+                      _ => null
+                  };
+              })
+              .OnUpgrade((_, lv) =>
+              {
+                  switch (lv)
+                  {
+                      case 1:
+                          Global.CollectableArea.Value = 2f;
+                          break;
+                      case 2:
+                          Global.CollectableArea.Value = 3f;
+                          break;
+                      case 3:
+                          Global.CollectableArea.Value = 4f;
+                          break;
+                  }
+              }));
+        Add(new ExpUpgradeItem(false)
+              .WithKey("simple_exp")
+              .WithMaxLevel(5)
+              .WithDescription(lv =>
+              {
+                  return lv switch
+                  {
+                      1 => $"经验值Lv{lv}:\n额外增加 5% 掉落概率",
+                      2 => $"经验值Lv{lv}:\n额外增加 8% 掉落概率",
+                      3 => $"经验值Lv{lv}:\n额外增加 12% 掉落概率",
+                      4 => $"经验值Lv{lv}:\n额外增加 17% 掉落概率",
+                      5 => $"经验值Lv{lv}:\n额外增加 25% 掉落概率",
+                      _ => null
+                  };
+              })
+              .OnUpgrade((_, lv) =>
+              {
+                  switch (lv)
+                  {
+                      case 1:
+                          Global.AdditionalExpPercent.Value = 0.05f;
+                          break;
+                      case 2:
+                          Global.AdditionalExpPercent.Value = 0.08f;
+                          break;
+                      case 3:
+                          Global.AdditionalExpPercent.Value = 0.12f;
+                          break;
+                      case 4:
+                          Global.AdditionalExpPercent.Value = 0.17f;
+                          break;
+                      case 5:
+                          Global.AdditionalExpPercent.Value = 0.25f;
+                          break;
+                  }
+              }));
         Add(new ExpUpgradeItem(false)
             .WithKey("simple_bomb")
             .WithMaxLevel(10)
@@ -367,18 +570,23 @@ public class ExpUpgradeSystem : AbstractSystem
         {
             expUpgradeItem.Visible.Value = false;
         }
-       foreach(var item in Items.Where(item => !item.UpgradeFinish).Take(5))
-        {
-            if (item == null)
-            {
 
-            }
-            else
+        var list= Items.Where(item => !item.UpgradeFinish).ToList();
+        if (list.Count >= 4)
+        {
+            list.GetAndRemoveRandomItem().Visible.Value = true;
+            list.GetAndRemoveRandomItem().Visible.Value = true;
+            list.GetAndRemoveRandomItem().Visible.Value = true;
+            list.GetAndRemoveRandomItem().Visible.Value = true;
+        }
+        else
+        {
+            foreach(var item in list)
             {
                 item.Visible.Value = true;
             }
-            item.Visible.Value = true;
         }
+       
 
        
     }

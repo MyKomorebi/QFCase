@@ -11,41 +11,47 @@ namespace ProjectSurvivor
         {
           
             Sword.Hide();
-            Global.RotateSwordCount.RegisterWithInitValue(count =>
+            void CreateSword()
             {
-                var toAddCount=count- mSwords.Count;
+                mSwords.Add(Sword.InstantiateWithParent(this)
+                       .Self(self =>
+                       {
+                           self.OnTriggerEnter2DEvent(collider =>
+                           {
+                               var hurtBox = collider.GetComponent<HurtBox>();
 
-                for (var i=0;i<toAddCount; i++)
+                               if (hurtBox)
+                               {
+                                   if (hurtBox.Owner.CompareTag("Enemy"))
+                                   {
+                                       DamageSystem.CalculateDemage(Global.RotateSwordDamage.Value,
+                                           hurtBox.Owner.GetComponent<Enemy>());
+
+                                       if (Random.Range(0, 1.0f) < 0.5f)
+                                       {
+                                           collider.attachedRigidbody.velocity =
+                                           collider.NormalizedDirection2DFrom(self) * 5 +
+                                           collider.NormalizedDirection2DFrom(Player.Default) * 10;
+                                       }
+                                   }
+                               }
+                           }).UnRegisterWhenGameObjectDestroyed(self);
+                       })
+                  .Show());
+            }
+            void CreatesSwords()
+            {
+                var toAddCount = Global.RotateSwordCount.Value + Global.AdditionalFlyThingCount.Value - mSwords.Count;
+
+                for (var i = 0; i < toAddCount; i++)
                 {
-                    mSwords.Add(Sword.InstantiateWithParent(this)
-                        .Self(self =>
-                        {
-                            self.OnTriggerEnter2DEvent(collider =>
-                            {
-                                var hurtBox = collider.GetComponent<HurtBox>();
-
-                                if (hurtBox)
-                                {
-                                    if (hurtBox.Owner.CompareTag("Enemy"))
-                                    {
-
-                                        hurtBox.Owner.GetComponent<Enemy>().Hurt(Global.RotateSwordDamage.Value);
-                                        if (Random.Range(0, 1.0f) < 0.5f)
-                                        {
-                                            collider.attachedRigidbody.velocity = 
-                                            collider.NormalizedDirection2DFrom(self)*5+
-                                            collider.NormalizedDirection2DFrom(Player.Default)*10;
-                                        }
-                                    }
-                                }
-                            }).UnRegisterWhenGameObjectDestroyed(self);
-                        })
-                   .Show());
+                    CreateSword();
 
                 }
-
                 UpdateCirclePos();
-            }).UnRegisterWhenGameObjectDestroyed (gameObject);
+            }
+            Global.RotateSwordCount.Or(Global.AdditionalFlyThingCount).Register((CreatesSwords)).UnRegisterWhenGameObjectDestroyed (gameObject);
+            CreatesSwords();
             Global.RotateSwordRange.Register((range) =>
             {
                 UpdateCirclePos ();
