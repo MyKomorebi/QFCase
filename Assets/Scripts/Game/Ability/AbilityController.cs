@@ -57,13 +57,13 @@ namespace ProjectSurvivor
                .ToList()
                .GetRandomItem().Upgrade();
 
-            //Global.SuperBomb.RegisterWithInitValue(unlocked =>
-            //{
-            //    if (unlocked)
-            //    {
-            //        SuperBomb.Show();
-            //    }
-            //}).UnRegisterWhenGameObjectDestroyed(gameObject);
+            Global.SuperBomb.RegisterWithInitValue(unlocked =>
+            {
+                if (unlocked)
+                {
+                    SuperBomb.Show();
+                }
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
     }
 }

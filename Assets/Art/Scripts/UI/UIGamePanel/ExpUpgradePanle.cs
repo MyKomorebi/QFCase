@@ -32,10 +32,31 @@ namespace ProjectSurvivor
                            var selfCache = self;
                            itemCache.Visible.RegisterWithInitValue(visible =>
                            {
+                               
                                if (visible) 
                                {
                                    self.GetComponentInChildren<Text>().text = expUpgradeItem.Description;
                                    selfCache.Show();
+                                   if(expUpgradeSystem.Pairs.TryGetValue(itemCache.Key,out var pairedName))
+                                   {
+                                       var pairedItem = expUpgradeSystem.Dictionary[pairedName];
+                                       if (pairedItem.CurrentLevel.Value > 0 && itemCache.CurrentLevel.Value == 0)
+                                       {
+                                           var pairedNameText = selfCache.transform.Find("PairedName");
+                                           pairedNameText.GetComponent<Text>().text =
+                                         "Åä¶Ô¼¼ÄÜ£º" + pairedItem.Key;
+                                           pairedNameText.Show();
+
+                                       }
+                                       else
+                                       {
+                                           selfCache.transform.Find("PairedName").Hide();
+                                       }
+                                   }
+                                   else
+                                   {
+                                       selfCache.transform.Find("PairedName").Hide();
+                                   }
                                }
                                else
                                {
@@ -69,7 +90,8 @@ namespace ProjectSurvivor
 
         protected override void OnBeforeDestroy()
 		{
-		}
+           
+        }
 
         public IArchitecture GetArchitecture()
         {

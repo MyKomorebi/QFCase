@@ -25,32 +25,59 @@ namespace ProjectSurvivor
         private void OnEnable()
         {
             var expUpgradeSystem=this.GetSystem<ExpUpgradeSystem>();
-			var upgradeItems = expUpgradeSystem.Items.Where(item => item.CurrentLevel.Value > 0 && !item.UpgradeFinish).ToList();
-			if(upgradeItems.Any())
-			{
-				var item = upgradeItems.GetRandomItem();
-				Content.text=item.Description;
-				item.Upgrade();
-
-            }
-			else
-			{
-                if (Global.HP.Value < Global.MaxHP.Value)
+           var matchedPadiredItems= expUpgradeSystem.Items.Where(item =>
+            {
+                if (item.CurrentLevel.Value >= 7)
                 {
-                    if (Random.Range(0, 1.0f) < 0.2f)
-                    {
-                        Content.text = "恢复 1 血量";
-                        AudioKit.PlaySound("HP");
-                        Global.HP.Value++;
-                        
-                        return;
-                    }
+                    var containsInPair = expUpgradeSystem.Pairs.ContainsKey(item.Key);
+                    var pairedItemKey = expUpgradeSystem.Pairs[item.Key];
+                    var pairedItemStartUpgrade = expUpgradeSystem.Dictionary[pairedItemKey].CurrentLevel.Value > 0;
+                    var pairedUnlocked = expUpgradeSystem.PairedProperties[item.Key].Value;
+                    return containsInPair && pairedItemStartUpgrade && !pairedUnlocked;
                 }
+                return false;
+            });
+            if (matchedPadiredItems.Any())
+            {
+                var item=matchedPadiredItems.ToList().GetRandomItem();
+                Content.text="<b>"+"合成后的"+item.Key+"</b>\n";
+                while (!item.UpgradeFinish)
+                {
+                    item.Upgrade();
+                }
+                expUpgradeSystem.PairedProperties[item.Key].Value = true;
 
-                Content.text = "增加 50 金币";
-                Global.Coin.Value += 50;
-               
             }
+            else
+            {
+                var upgradeItems = expUpgradeSystem.Items.Where(item => item.CurrentLevel.Value > 0 && !item.UpgradeFinish).ToList();
+                if (upgradeItems.Any())
+                {
+                    var item = upgradeItems.GetRandomItem();
+                    Content.text = item.Description;
+                    item.Upgrade();
+
+                }
+                else
+                {
+                    if (Global.HP.Value < Global.MaxHP.Value)
+                    {
+                        if (Random.Range(0, 1.0f) < 0.2f)
+                        {
+                            Content.text = "恢复 1 血量";
+                            AudioKit.PlaySound("HP");
+                            Global.HP.Value++;
+
+                            return;
+                        }
+                    }
+
+                    Content.text = "增加 50 金币";
+                    Global.Coin.Value += 50;
+
+                }
+            }
+            
         }
 
         protected override void OnBeforeDestroy()

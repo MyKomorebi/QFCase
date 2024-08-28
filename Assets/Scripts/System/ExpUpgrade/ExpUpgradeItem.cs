@@ -46,7 +46,7 @@ public class ExpUpgradeItem
 
     public ExpUpgradeItem WithKey(string key)
     {
-        Key = Key;
+        Key = key;
         return this;
     }
 

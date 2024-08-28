@@ -892,6 +892,7 @@ Transform:
   - {fileID: 311871950}
   - {fileID: 1456888831}
   - {fileID: 1052938320}
+  - {fileID: 794910739}
   m_Father: {fileID: 1081948008}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -919,6 +920,7 @@ MonoBehaviour:
   SimpleAxe: {fileID: 311871951}
   Simpleknife: {fileID: 1456888832}
   BasketBallAbility: {fileID: 1052938321}
+  SuperBomb: {fileID: 794910740}
 --- !u!4 &400628672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7248952041523934668, guid: ee98dd27dbc556a479e92c56845996a4, type: 3}
@@ -8293,6 +8295,7 @@ GameObject:
   - component: {fileID: 470377462}
   - component: {fileID: 470377461}
   - component: {fileID: 470377460}
+  - component: {fileID: 470377465}
   m_Layer: 0
   m_Name: TreasureChest
   m_TagString: Untagged
@@ -8434,6 +8437,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &470377465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470377458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: 
+  ScriptName: 
+  ScriptsFolder: 
+  GeneratePrefab: 0
+  PrefabFolder: 
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &480167112
 GameObject:
   m_ObjectHideFlags: 0
@@ -8821,13 +8843,14 @@ GameObject:
   - component: {fileID: 547922756}
   - component: {fileID: 547922755}
   - component: {fileID: 547922760}
+  - component: {fileID: 547922761}
   m_Layer: 6
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &547922754
 Transform:
   m_ObjectHideFlags: 0
@@ -8985,6 +9008,25 @@ MonoBehaviour:
   CustomComponentName: Ball
   CustomComment: 
   mComponentName: ProjectSurvivor.Ball
+--- !u!114 &547922761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547922753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: 
+  ScriptName: 
+  ScriptsFolder: 
+  GeneratePrefab: 0
+  PrefabFolder: 
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &560369665
 GameObject:
   m_ObjectHideFlags: 0
@@ -8999,6 +9041,7 @@ GameObject:
   - component: {fileID: 560369668}
   - component: {fileID: 560369667}
   - component: {fileID: 560369671}
+  - component: {fileID: 560369672}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -9140,6 +9183,25 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfCollider2D
     Object: {fileID: 560369666}
+--- !u!114 &560369672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560369665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: 
+  ScriptName: 
+  ScriptsFolder: 
+  GeneratePrefab: 0
+  PrefabFolder: 
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!4 &575046536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7397294891927570653, guid: a152f1f73ea71884db13a31c6e186386, type: 3}
@@ -9322,6 +9384,7 @@ GameObject:
   - component: {fileID: 712182134}
   - component: {fileID: 712182138}
   - component: {fileID: 712182139}
+  - component: {fileID: 712182140}
   m_Layer: 0
   m_Name: Exp
   m_TagString: Untagged
@@ -9463,6 +9526,93 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfCollider2D
     Object: {fileID: 712182135}
+--- !u!114 &712182140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712182133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: 
+  ScriptName: 
+  ScriptsFolder: 
+  GeneratePrefab: 0
+  PrefabFolder: 
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+--- !u!1 &794910738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 794910739}
+  - component: {fileID: 794910740}
+  - component: {fileID: 794910741}
+  m_Layer: 0
+  m_Name: SuperBomb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &794910739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794910738}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 340173045}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &794910740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794910738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3f5403168518d42bc3f3dd360ea761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: ProjectSurvivor
+  ScriptName: SuperBomb
+  ScriptsFolder: Assets/Scripts/Game/Ability
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+--- !u!114 &794910741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794910738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: SuperBomb
+  CustomComment: 
+  mComponentName: ProjectSurvivor.SuperBomb
 --- !u!4 &819194913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 148034293727467761, guid: 70a6ee498a77c3449911697e15d4c337, type: 3}
@@ -9697,7 +9847,7 @@ RectTransform:
   m_Children:
   - {fileID: 22310503}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9718,6 +9868,7 @@ GameObject:
   - component: {fileID: 877701126}
   - component: {fileID: 877701131}
   - component: {fileID: 877701132}
+  - component: {fileID: 877701133}
   m_Layer: 0
   m_Name: HP
   m_TagString: Untagged
@@ -9859,6 +10010,25 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfCollider2D
     Object: {fileID: 877701125}
+--- !u!114 &877701133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877701124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: 
+  ScriptName: 
+  ScriptsFolder: 
+  GeneratePrefab: 0
+  PrefabFolder: 
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &922863802
 GameObject:
   m_ObjectHideFlags: 0
@@ -10079,6 +10249,7 @@ GameObject:
   - component: {fileID: 1036286842}
   - component: {fileID: 1036286843}
   - component: {fileID: 1036286847}
+  - component: {fileID: 1036286848}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -10220,6 +10391,25 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfCollider2D
     Object: {fileID: 1036286844}
+--- !u!114 &1036286848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036286841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: 
+  ScriptName: 
+  ScriptsFolder: 
+  GeneratePrefab: 0
+  PrefabFolder: 
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &1048310288
 GameObject:
   m_ObjectHideFlags: 0
@@ -10464,6 +10654,7 @@ GameObject:
   - component: {fileID: 1081948010}
   - component: {fileID: 1081948012}
   - component: {fileID: 1081948011}
+  - component: {fileID: 1081948013}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10552,6 +10743,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1081948013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081948006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: 
+  ScriptName: 
+  ScriptsFolder: 
+  GeneratePrefab: 0
+  PrefabFolder: 
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &1092926394
 GameObject:
   m_ObjectHideFlags: 0
@@ -10566,6 +10776,7 @@ GameObject:
   - component: {fileID: 1092926397}
   - component: {fileID: 1092926396}
   - component: {fileID: 1092926400}
+  - component: {fileID: 1092926401}
   m_Layer: 0
   m_Name: GetAllExp
   m_TagString: Untagged
@@ -10707,6 +10918,25 @@ MonoBehaviour:
   Binds:
   - MemberName: SelfCollider2D
     Object: {fileID: 1092926395}
+--- !u!114 &1092926401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092926394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: 
+  ScriptName: 
+  ScriptsFolder: 
+  GeneratePrefab: 0
+  PrefabFolder: 
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &1108000271
 GameObject:
   m_ObjectHideFlags: 0
@@ -10895,7 +11125,7 @@ Transform:
   m_Children:
   - {fileID: 2035828460}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1456862190 stripped
 Transform:
@@ -11295,74 +11525,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1623809033152178967, guid: 9d4b30cd60259c64eaa94e6159d76449, type: 3}
   m_PrefabInstance: {fileID: 1623809032605528685}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1757614183
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1757614186}
-  - component: {fileID: 1757614185}
-  - component: {fileID: 1757614184}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1757614184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757614183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1757614185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757614183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1757614186
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757614183}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1798780952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8188360436189901192, guid: 85976b67be374bb4e84933435a037d6e, type: 3}

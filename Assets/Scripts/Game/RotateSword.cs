@@ -7,6 +7,8 @@ namespace ProjectSurvivor
     public partial class RotateSword : ViewController
     {
         List <Collider2D>mSwords=new List <Collider2D> ();
+
+     
         void Start()
         {
           
@@ -24,7 +26,8 @@ namespace ProjectSurvivor
                                {
                                    if (hurtBox.Owner.CompareTag("Enemy"))
                                    {
-                                       DamageSystem.CalculateDemage(Global.RotateSwordDamage.Value,
+                                       var damageTimes=Global.SuperRotateSword.Value?Random.Range(2,3+1):1;
+                                       DamageSystem.CalculateDemage(Global.RotateSwordDamage.Value*damageTimes,
                                            hurtBox.Owner.GetComponent<Enemy>());
 
                                        if (Random.Range(0, 1.0f) < 0.5f)
@@ -76,10 +79,12 @@ namespace ProjectSurvivor
 
         private void Update()
         {
-            
 
-            var degree = Time.frameCount*Global.RotateSwordSpeed.Value ;
-            this.LocalEulerAnglesZ(-degree);
+            var speed = Global.SuperRotateSword.Value
+                ? Time.frameCount * 10
+                : Time.frameCount * Global.RotateSwordSpeed.Value;
+           
+            this.LocalEulerAnglesZ(-speed);
 
            
         }

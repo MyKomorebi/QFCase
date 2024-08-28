@@ -9,6 +9,34 @@ public class ExpUpgradeSystem : AbstractSystem
 {
 
     public List<ExpUpgradeItem> Items { get; } = new List<ExpUpgradeItem>();
+    public Dictionary<string, ExpUpgradeItem> Dictionary = new ();
+    public Dictionary<string, string> Pairs = new Dictionary<string, string>()
+        {
+            { "simple_sword", "simple_critical" },
+            { "simple_bomb", "simple_fly_count" },
+            { "simple_knife", "damage_rate" },
+            { "basket_ball", "movement_speed_rate" },
+            { "rotate_sword", "simple_exp" },
+
+            { "simple_critical", "simple_sword" },
+            { "simple_fly_count", "simple_bomb" },
+            { "damage_rate", "simple_knife" },
+            { "movement_speed_rate", "basket_ball" },
+            { "simple_exp", "rotate_sword" },
+        };
+
+    public Dictionary<string, BindableProperty<bool>>PairedProperties =
+           new()
+           {
+                { "simple_sword", Global.SuperSword },
+                { "simple_bomb", Global.SuperBomb },
+                { "simple_knife", Global.SuperKnife },
+                { "basket_ball", Global.SuperBasketBall },
+                { "rotate_sword", Global.SuperRotateSword },
+
+               // simple_exp
+               // simple_collectable_area
+           };
     public ExpUpgradeItem Add(ExpUpgradeItem item)
     {
         Items.Add(item);
@@ -20,6 +48,7 @@ public class ExpUpgradeSystem : AbstractSystem
 
         Global.Level.Register(_ =>
         {
+            
             Roll();
         });
     }
@@ -28,7 +57,7 @@ public class ExpUpgradeSystem : AbstractSystem
     {
         Items.Clear();
         Add(new ExpUpgradeItem(true))
-            .WithKey("Simple_Sword")
+            .WithKey("simple_sword")
             .WithDescription(lv =>
             {
                 return lv switch
@@ -95,7 +124,7 @@ public class ExpUpgradeSystem : AbstractSystem
             });
 
        Add(new ExpUpgradeItem(true))
-             .WithKey("Rotate_Sword")
+             .WithKey("rotate_sword")
               .WithMaxLevel(10)
             .WithDescription(lv =>
             {
@@ -435,7 +464,7 @@ public class ExpUpgradeSystem : AbstractSystem
         );
 
         Add(new ExpUpgradeItem(true))
-            .WithKey("Simple_knife")
+            .WithKey("simple_knife")
              .WithMaxLevel(10)
            .WithDescription(lv =>
            {
@@ -559,9 +588,11 @@ public class ExpUpgradeSystem : AbstractSystem
                          Global.BasketBallCount.Value++;
                          break;
                  }
-             })
-         );
-
+             }));
+       
+      
+        Dictionary = Items.ToDictionary(i => i.Key);
+        
     }
     public void Roll()
     {
@@ -570,10 +601,11 @@ public class ExpUpgradeSystem : AbstractSystem
         {
             expUpgradeItem.Visible.Value = false;
         }
-
+        
         var list= Items.Where(item => !item.UpgradeFinish).ToList();
         if (list.Count >= 4)
         {
+           
             list.GetAndRemoveRandomItem().Visible.Value = true;
             list.GetAndRemoveRandomItem().Visible.Value = true;
             list.GetAndRemoveRandomItem().Visible.Value = true;
@@ -581,6 +613,7 @@ public class ExpUpgradeSystem : AbstractSystem
         }
         else
         {
+          
             foreach(var item in list)
             {
                 item.Visible.Value = true;

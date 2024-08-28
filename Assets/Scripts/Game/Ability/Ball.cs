@@ -5,11 +5,20 @@ namespace ProjectSurvivor
 {
 	public partial class Ball : ViewController
 	{
+
+	
 		void Start()
 		{
 			SelfRigidody2D.velocity =
 				new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f) *
 				Random.Range(Global.BasketBallSpeed.Value - 2, Global.BasketBallSpeed.Value + 2));
+			Global. SuperBasketBall.RegisterWithInitValue(unlocked =>
+			{
+				if (unlocked)
+				{
+					this.LocalScale(3);
+				}
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
 			HurtBox.OnTriggerEnter2DEvent(collider =>
 			{
@@ -19,7 +28,8 @@ namespace ProjectSurvivor
 					if (hurtBox.Owner.CompareTag("Enemy"))
 					{
 						var enemy=hurtBox.Owner.GetComponent<IEnemy>();
-						DamageSystem.CalculateDemage(Global.BasketBallDamage.Value, enemy);
+						var damageTimes=Global.SuperBasketBall.Value?Random.Range(2,3+1):1;
+						DamageSystem.CalculateDemage(Global.BasketBallDamage.Value*damageTimes, enemy);
 						
 						
                         if (Random.Range(0, 1.0f) < 0.5f&&collider&&collider.attachedRigidbody&&Player.Default)

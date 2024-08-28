@@ -1,4 +1,4 @@
-// Generate Id:8f0c8298-0924-4862-9e98-8af883d831dd
+// Generate Id:d70a2f5b-cc1d-4aee-8adb-ae2819abc83a
 using UnityEngine;
 
 namespace ProjectSurvivor
@@ -15,6 +15,8 @@ namespace ProjectSurvivor
 		public ProjectSurvivor.Simpleknife Simpleknife;
 
 		public ProjectSurvivor.BasketBallAbility BasketBallAbility;
+
+		public ProjectSurvivor.SuperBomb SuperBomb;
 
 	}
 }

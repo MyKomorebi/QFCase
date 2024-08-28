@@ -58,6 +58,12 @@ namespace ProjectSurvivor
         public static BindableProperty<float> CollectableArea = new(Config.InitCollectableArea);
         public static BindableProperty<float> MovementSpeedRate = new BindableProperty<float>(1.0f);
         public static BindableProperty<float> AdditionalExpPercent = new(0);
+
+        public static BindableProperty<bool> SuperKnife = new(false);
+        public static BindableProperty<bool> SuperSword = new(false);
+        public static BindableProperty<bool> SuperRotateSword = new(false);
+        public static BindableProperty<bool> SuperBomb = new(false);
+        public static BindableProperty<bool> SuperBasketBall = new(false);
         //经验概率
         public static BindableProperty<float> Expercent = new BindableProperty<float>(0.3f);
         //金币概率
@@ -238,6 +244,11 @@ namespace ProjectSurvivor
             CollectableArea.Value = Config.InitCollectableArea;
             DamageRate.Value = 1;
             AdditionalExpPercent.Value = 0;
+            SuperKnife.Value = false;
+            SuperBomb.Value = false;
+            SuperRotateSword.Value = false;
+            SuperSword.Value = false;
+            SuperBasketBall.Value = false;
 
             MovementSpeedRate.Value = 1;
             //敌人数量重置

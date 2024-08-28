@@ -9,6 +9,8 @@ namespace ProjectSurvivor
     {
         
         private float mCurrentSeconds = 0;
+
+        
         void Update()
         {
             mCurrentSeconds += Time.deltaTime;
@@ -58,7 +60,8 @@ namespace ProjectSurvivor
                                         {
                                             if (hurtBox.Owner.CompareTag("Enemy"))
                                             {
-                                                DamageSystem.CalculateDemage(Global.SimpleKinfeDamage.Value, 
+                                                var damageTimes=Global.SuperKnife.Value?Random.Range(2,3+1):1;
+                                                DamageSystem.CalculateDemage(Global.SimpleKinfeDamage.Value*damageTimes, 
                                                     hurtBox.Owner.GetComponent<Enemy>());
                                                
                                                 attackCount++;

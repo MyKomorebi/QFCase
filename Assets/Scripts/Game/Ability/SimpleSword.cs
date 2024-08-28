@@ -9,7 +9,7 @@ namespace ProjectSurvivor
         //当前秒
         private float currentSeconds = 0;
        
-
+       
         private void Update()
         {
             currentSeconds += Time.deltaTime;
@@ -19,13 +19,17 @@ namespace ProjectSurvivor
             {
                 //当前时间重置
                 currentSeconds = 0;
+                var countTimes=Global.SuperSword.Value?2:1;
+                var damageTimes= Global.SuperSword.Value?Random.Range(2,3+1):1;
+                var distanceTimes= Global.SuperSword.Value?2:1;
+
                 //获取所有的敌人
                 var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
                 //遍历获取的敌人
                 foreach (var enemy in enemies
                     .OrderBy(e=>e.Direction2DFrom(Player.Default).magnitude)
-                    .Where(e=>e.Direction2DFrom(Player.Default).magnitude<Global.SimpleSwordRange.Value)
-                    .Take(Global.SimpleSwordCount.Value + Global.AdditionalFlyThingCount.Value))
+                    .Where(e=>e.Direction2DFrom(Player.Default).magnitude<Global.SimpleSwordRange.Value*distanceTimes)
+                    .Take((Global.SimpleSwordCount.Value + Global.AdditionalFlyThingCount.Value)*countTimes))
                 {
                    
                         //敌人受伤
@@ -42,7 +46,8 @@ namespace ProjectSurvivor
                                     {
                                         if (hurtBox.Owner.CompareTag("Enemy"))
                                         {
-                                            DamageSystem.CalculateDemage(Global.SimpleAbillityDamage.Value, hurtBox.Owner.GetComponent<Enemy>());
+                                            DamageSystem.CalculateDemage(Global.SimpleAbillityDamage.Value*damageTimes,
+                                                hurtBox.Owner.GetComponent<Enemy>());
                                             
                                         }
                                     }
