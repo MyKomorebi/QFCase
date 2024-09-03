@@ -1,17 +1,17 @@
 using UnityEngine;
 using QFramework;
-
+using  QAssetBundle;
 
 namespace ProjectSurvivor
 {
 	public partial class Player : ViewController
 	{
 
-		//ÒÆ¶¯ËÙ¶È
+		//ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½
 		public float movementSpeed = 5;
-		//µ¥Àý
+		//ï¿½ï¿½ï¿½ï¿½
 		public static Player Default;
-
+ private AudioPlayer mWalkSfx;
 
 
         private void Awake()
@@ -22,33 +22,33 @@ namespace ProjectSurvivor
 		{
 			
 
-			//2d´¥·¢ÊÂ¼þ
+			//2dï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 			HurtBox.OnTriggerEnter2DEvent(Collider2D =>
 			{
-				//»ñÈ¡Åö×²ºÐ
+				//ï¿½ï¿½È¡ï¿½ï¿½×²ï¿½ï¿½
 				var hitBox = Collider2D.GetComponent<HitBox>();
-				//Èç¹û²»Îª¿Õ
+				//ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
 				if(hitBox != null)
 				{
-					//Åö×²µÄ¶ÔÏóÎªµÐÈË
+					//ï¿½ï¿½×²ï¿½Ä¶ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
 					if (hitBox.Owner.CompareTag("Enemy"))
 					{
-						//ÑªÁ¿¼õÒ»
+						//Ñªï¿½ï¿½ï¿½ï¿½Ò»
 						Global.HP.Value--;
-						//Èç¹ûÑªÁ¿ÒÑ¾­Ð¡ÓÚ0
+						//ï¿½ï¿½ï¿½Ñªï¿½ï¿½ï¿½Ñ¾ï¿½Ð¡ï¿½ï¿½0
 						if(Global.HP.Value<=0)
 						{
-							//²¥·ÅËÀÍöÒôÐ§
+							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
                             AudioKit.PlaySound("Die");
-                            //Ïú»Ù×Ô¼º
+                            //ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½
                             this.DestroyGameObjGracefully();
                             
-                            //´ò¿ª½áÊøÃæ°å
+                            //ï¿½ò¿ª½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                             UIKit.OpenPanel<UIGameOverPanel>();
                         }
 						else
 						{
-							//²¥·ÅÊÜÉËÒôÐ§
+							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
 							AudioKit.PlaySound("Hurt");
 						}
 						
@@ -56,7 +56,7 @@ namespace ProjectSurvivor
 				}
 				
 
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);//Ïú»Ù¶ÔÏóÊ±×¢ÏúÊÂ¼þ
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);//ï¿½ï¿½ï¿½Ù¶ï¿½ï¿½ï¿½Ê±×¢ï¿½ï¿½ï¿½Â¼ï¿½
 
 			
 			void UpdateHP()
@@ -74,17 +74,59 @@ namespace ProjectSurvivor
                 UpdateHP();
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
-
+   private bool mFaceRight = true;
 		void Update()
 		{
-			//»ñÈ¡Ë®Æ½ÊäÈë
+			//ï¿½ï¿½È¡Ë®Æ½ï¿½ï¿½ï¿½ï¿½
 			var horizontal = Input.GetAxisRaw("Horizontal");
-			//»ñÈ¡´¹Ö±ÊäÈë
+			//ï¿½ï¿½È¡ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½
 			var vertical = Input.GetAxisRaw("Vertical");
-			//¹éÒ»»¯ÏòÁ¿
+			//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			var targetVelocity = new Vector2(horizontal, vertical).normalized*
 				(movementSpeed*Global.MovementSpeedRate.Value);
-			//Îª¸ÕÌåÌí¼ÓËÙ¶È
+				    if (horizontal == 0 && vertical == 0)
+            {
+                if (mFaceRight)
+                {
+                    Sprite.Play("PlayerIdleRight");
+                }
+                else
+                {
+                    Sprite.Play("PlayerIdleLeft");
+                }
+
+                if (mWalkSfx != null)
+                {
+                    mWalkSfx.Stop();
+                    mWalkSfx = null;
+                }
+            }
+             else
+            {
+                if (mWalkSfx == null)
+                {
+                    mWalkSfx = AudioKit.PlaySound(Sfx.WALK, true);
+                }
+                
+                if (horizontal > 0)
+                {
+                    mFaceRight = true;
+                } 
+                else if (horizontal < 0)
+                {
+                    mFaceRight = false;
+                }
+                
+                if (mFaceRight)
+                {
+                    Sprite.Play("PlayerWalkRight");
+                }
+                else
+                {
+                    Sprite.Play("PlayerWalkLeft");
+                }
+            }
+			//Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
 			SelfRigidbody2D.velocity =Vector2.Lerp(SelfRigidbody2D.velocity,targetVelocity,1-Mathf.Exp(-Time.deltaTime*5));
 		}
 

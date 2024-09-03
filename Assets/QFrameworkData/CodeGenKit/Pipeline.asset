@@ -19,33 +19,15 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: ProjectSurvivor.SimpleSword
-      PathToRoot: SimpleSword
-      MemberName: SimpleSword
-    - TypeName: ProjectSurvivor.RotateSword
-      PathToRoot: Rotateword
-      MemberName: Rotateword
-    - TypeName: ProjectSurvivor.SimpleAxe
-      PathToRoot: SimpleAxe
-      MemberName: SimpleAxe
-    - TypeName: ProjectSurvivor.Simpleknife
-      PathToRoot: Simpleknife
-      MemberName: Simpleknife
-    - TypeName: ProjectSurvivor.BasketBallAbility
-      PathToRoot: BasketBallAbility
-      MemberName: BasketBallAbility
-    - TypeName: ProjectSurvivor.SuperBomb
-      PathToRoot: SuperBomb
-      MemberName: SuperBomb
-    ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: AbilityController
+    - TypeName: UnityEngine.Tilemaps.Tilemap
+      PathToRoot: Tilemap
+      MemberName: Tilemap
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: Grid
     Namespace: ProjectSurvivor
     MainCode: "using UnityEngine;\r\nusing QFramework;\r\n\r\nnamespace ProjectSurvivor\r\n{\r\n\tpublic
-      partial class AbilityController : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
+      partial class Grid : ViewController\r\n\t{\r\n\t\tvoid Start()\r\n\t\t{\r\n\t\t\t//
       Code Here\r\n\t\t}\r\n\t}\r\n}\r\n"
-    DesignerCode: "// Generate Id:d70a2f5b-cc1d-4aee-8adb-ae2819abc83a\r\nusing UnityEngine;\r\n\r\nnamespace
-      ProjectSurvivor\r\n{\r\n\tpublic partial class AbilityController\r\n\t{\r\n\r\n\t\tpublic
-      ProjectSurvivor.SimpleSword SimpleSword;\r\n\r\n\t\tpublic ProjectSurvivor.RotateSword
-      Rotateword;\r\n\r\n\t\tpublic ProjectSurvivor.SimpleAxe SimpleAxe;\r\n\r\n\t\tpublic
-      ProjectSurvivor.Simpleknife Simpleknife;\r\n\r\n\t\tpublic ProjectSurvivor.BasketBallAbility
-      BasketBallAbility;\r\n\r\n\t\tpublic ProjectSurvivor.SuperBomb SuperBomb;\r\n\r\n\t}\r\n}\r\n"
+    DesignerCode: "// Generate Id:62aaedf3-5e52-44c5-8c0a-faad4f1fc009\r\nusing UnityEngine;\r\n\r\nnamespace
+      ProjectSurvivor\r\n{\r\n\tpublic partial class Grid\r\n\t{\r\n\r\n\t\tpublic
+      UnityEngine.Tilemaps.Tilemap Tilemap;\r\n\r\n\t}\r\n}\r\n"
