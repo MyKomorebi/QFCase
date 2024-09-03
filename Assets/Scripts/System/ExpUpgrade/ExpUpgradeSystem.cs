@@ -58,6 +58,11 @@ public class ExpUpgradeSystem : AbstractSystem
         Items.Clear();
         Add(new ExpUpgradeItem(true))
             .WithKey("simple_sword")
+              .WithName("剑")
+                .WithIconName("simple_sword_icon")
+                .WithPairedName("合成后的剑")
+                .WithPairedIconName("paired_simple_sword_icon")
+                .WithPairedDescription("攻击力翻倍 攻击范围翻倍")
             .WithDescription(lv =>
             {
                 return lv switch
@@ -125,6 +130,11 @@ public class ExpUpgradeSystem : AbstractSystem
 
        Add(new ExpUpgradeItem(true))
              .WithKey("rotate_sword")
+              .WithName("守卫剑")
+                .WithIconName("rotate_sword_icon")
+                .WithPairedName("合成后的守卫剑")
+                .WithPairedIconName("paired_rotate_sword_icon")
+                .WithPairedDescription("攻击力翻倍 旋转速度翻倍")
               .WithMaxLevel(10)
             .WithDescription(lv =>
             {
@@ -196,6 +206,8 @@ public class ExpUpgradeSystem : AbstractSystem
 
         Add(new ExpUpgradeItem(false)
                .WithKey("simple_critical")
+                .WithName("暴击")
+                .WithIconName("critical_icon")
                .WithMaxLevel(5)
                .WithDescription(lv =>
                {
@@ -232,6 +244,8 @@ public class ExpUpgradeSystem : AbstractSystem
                }));
         Add(new ExpUpgradeItem(false)
                 .WithKey("damage_rate")
+                 .WithName("伤害率")
+                .WithIconName("damage_icon")
                 .WithMaxLevel(5)
                 .WithDescription(lv =>
                 {
@@ -269,6 +283,8 @@ public class ExpUpgradeSystem : AbstractSystem
                 }));
         Add(new ExpUpgradeItem(false)
                .WithKey("simple_fly_count")
+                .WithIconName("fly_icon")
+                .WithName("飞射物")
                .WithMaxLevel(3)
                .WithDescription(lv =>
                {
@@ -297,6 +313,8 @@ public class ExpUpgradeSystem : AbstractSystem
                }));
         Add(new ExpUpgradeItem(false)
                .WithKey("movement_speed_rate")
+                .WithName("移动速度")
+                .WithIconName("movement_icon")
                .WithMaxLevel(5)
                .WithDescription(lv =>
                {
@@ -334,6 +352,8 @@ public class ExpUpgradeSystem : AbstractSystem
                }));
         Add(new ExpUpgradeItem(false)
               .WithKey("simple_collectable_area")
+              .WithName("拾取范围")
+                .WithIconName("collectable_icon")
               .WithMaxLevel(3)
               .WithDescription(lv =>
               {
@@ -362,6 +382,8 @@ public class ExpUpgradeSystem : AbstractSystem
               }));
         Add(new ExpUpgradeItem(false)
               .WithKey("simple_exp")
+              .WithName("经验值")
+                .WithIconName("exp_icon")
               .WithMaxLevel(5)
               .WithDescription(lv =>
               {
@@ -465,6 +487,11 @@ public class ExpUpgradeSystem : AbstractSystem
 
         Add(new ExpUpgradeItem(true))
             .WithKey("simple_knife")
+            .WithName("飞刀")
+                .WithIconName("simple_knife_icon")
+                .WithPairedName("合成后的飞刀")
+                .WithPairedIconName("paired_simple_knife_icon")
+                .WithPairedDescription("攻击力翻倍")
              .WithMaxLevel(10)
            .WithDescription(lv =>
            {
@@ -535,6 +562,11 @@ public class ExpUpgradeSystem : AbstractSystem
            });
         Add(new ExpUpgradeItem(true)
              .WithKey("basket_ball")
+             .WithName("篮球")
+                .WithIconName("ball_icon")
+                .WithPairedName("合成后的篮球")
+                .WithPairedIconName("paired_ball_icon")
+                .WithPairedDescription("攻击力翻倍 体积变大")
              .WithMaxLevel(10)
              .WithDescription(lv =>
              {

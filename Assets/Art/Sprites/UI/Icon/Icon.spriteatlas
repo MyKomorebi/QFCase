@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Icon
+  serializedVersion: 2
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 255b1b95de46d694c8f535361c41f995, type: 3}
+    - {fileID: 2800000, guid: e277e971be2f29945b29a05aef115bf9, type: 3}
+    - {fileID: 2800000, guid: 73034a7ae3ca93a428bbd9afc743143c, type: 3}
+    - {fileID: 2800000, guid: f1f5e631c011dbb44b0cb23e91d2346d, type: 3}
+    - {fileID: 2800000, guid: 8e5f8918a64e1c944aa6d6a0d8f4eaa7, type: 3}
+    - {fileID: 2800000, guid: 4693d89d641589f42aa4621472061f99, type: 3}
+    - {fileID: 2800000, guid: 89cbcc00de865e34b9321d4762ed71b9, type: 3}
+    - {fileID: 2800000, guid: dd2aaa35b3f4f9b4b9a741f80ddf8f9f, type: 3}
+    - {fileID: 2800000, guid: ee0e7c3119ab7724c8a7d26d38813807, type: 3}
+    - {fileID: 2800000, guid: f46fb77c970d7b9448ab87314844990b, type: 3}
+    - {fileID: 2800000, guid: e26260409dbadc745a575c4fae6123df, type: 3}
+    - {fileID: 2800000, guid: 5a9c6a96cdda43546ad018d8049eeee8, type: 3}
+    - {fileID: 2800000, guid: a161cf7420aabf54a8845d433aee2e3e, type: 3}
+    - {fileID: 2800000, guid: d6cfcffa237be3d40aa86621ec500d69, type: 3}
+    - {fileID: 2800000, guid: 8293f8402001b204cb7fe0d89494c033, type: 3}
+    - {fileID: 2800000, guid: 3c711a31cfdce244b9b3a573d2effa83, type: 3}
+    - {fileID: 2800000, guid: e277f7351245830449814be7f4c3dcf1, type: 3}
+    - {fileID: 2800000, guid: 50a14e019999f3c4a833ba95bbb70ce6, type: 3}
+    - {fileID: 2800000, guid: 0a59267e4fc52a5439e0ee223e718041, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 89cbcc00de865e34b9321d4762ed71b9, type: 3}
+  - {fileID: 21300000, guid: e26260409dbadc745a575c4fae6123df, type: 3}
+  - {fileID: 21300000, guid: 8293f8402001b204cb7fe0d89494c033, type: 3}
+  - {fileID: 21300000, guid: 50a14e019999f3c4a833ba95bbb70ce6, type: 3}
+  - {fileID: 21300000, guid: f1f5e631c011dbb44b0cb23e91d2346d, type: 3}
+  - {fileID: 21300000, guid: 3c711a31cfdce244b9b3a573d2effa83, type: 3}
+  - {fileID: 21300000, guid: ee0e7c3119ab7724c8a7d26d38813807, type: 3}
+  - {fileID: 21300000, guid: e277e971be2f29945b29a05aef115bf9, type: 3}
+  - {fileID: 21300000, guid: a161cf7420aabf54a8845d433aee2e3e, type: 3}
+  - {fileID: 21300000, guid: e277f7351245830449814be7f4c3dcf1, type: 3}
+  - {fileID: 21300000, guid: dd2aaa35b3f4f9b4b9a741f80ddf8f9f, type: 3}
+  - {fileID: 21300000, guid: 255b1b95de46d694c8f535361c41f995, type: 3}
+  - {fileID: 21300000, guid: 5a9c6a96cdda43546ad018d8049eeee8, type: 3}
+  - {fileID: 21300000, guid: 8e5f8918a64e1c944aa6d6a0d8f4eaa7, type: 3}
+  - {fileID: 21300000, guid: 73034a7ae3ca93a428bbd9afc743143c, type: 3}
+  - {fileID: 21300000, guid: d6cfcffa237be3d40aa86621ec500d69, type: 3}
+  - {fileID: 21300000, guid: f46fb77c970d7b9448ab87314844990b, type: 3}
+  - {fileID: 21300000, guid: 4693d89d641589f42aa4621472061f99, type: 3}
+  - {fileID: 21300000, guid: 0a59267e4fc52a5439e0ee223e718041, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - critical_icon
+  - movement_icon
+  - paired_simple_knife_icon
+  - simple_knife_icon
+  - ball_icon
+  - paired_simple_sword_icon
+  - exp_icon
+  - achievement_level_icon
+  - paired_bomb_icon
+  - rotate_sword_icon
+  - damage_icon
+  - achievement_all_icon
+  - paired_ball_icon
+  - bomb_icon
+  - achievement_time_icon
+  - paired_rotate_sword_icon
+  - fly_icon
+  - collectable_icon
+  - simple_sword_icon
+  m_RenderDataMap: {}
+  m_Tag: Icon
+  m_IsVariant: 0
+  m_IsPlaceholder: 0

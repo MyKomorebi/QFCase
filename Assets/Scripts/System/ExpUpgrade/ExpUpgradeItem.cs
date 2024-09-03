@@ -15,10 +15,12 @@ public class ExpUpgradeItem
     public bool UpgradeFinish { get; set; } = false;
     public string Key { get; private set; }
 
-
+    public string Name {  get; private set; }
     public string Description =>mDescriptionFactory(CurrentLevel.Value+1);
 
    public int MaxLevel { get;private set; }
+
+    public string IconName {  get; private set; }   
 
     public BindableProperty<int> CurrentLevel=new BindableProperty<int>(0);
 
@@ -49,7 +51,35 @@ public class ExpUpgradeItem
         Key = key;
         return this;
     }
+    public ExpUpgradeItem WithName(string name)
+    {
+        Name = name; 
+        return this;
+    }
+    public ExpUpgradeItem WithIconName(string iconName)
+    {
+        IconName = iconName;
+        return this;
+    }
+    public string PairedName {  get; private set; }
+    public string PairedDescription {  get; private set; }
+    public string PairedIconName {  get; private set; }
+    public ExpUpgradeItem WithPairedName(string pairedName)
+    {
+        PairedName = pairedName;
+        return this;
+    }
 
+    public ExpUpgradeItem WithPairedIconName(string pairedIconName)
+    {
+        PairedIconName = pairedIconName;
+        return this;
+    }
+    public ExpUpgradeItem WithPairedDescription(string pairedDescription)
+    {
+        PairedDescription = pairedDescription;
+        return this;
+    }
     public ExpUpgradeItem WithDescription(Func<int,string> descriptionFactory)
     {
         mDescriptionFactory = descriptionFactory;

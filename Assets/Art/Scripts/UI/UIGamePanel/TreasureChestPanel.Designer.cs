@@ -1,5 +1,5 @@
 ﻿/****************************************************************************
- * 2024.8 USER-20240116VV
+ * 2024.9 枕头
  ****************************************************************************/
 
 using UnityEngine;
@@ -10,11 +10,13 @@ namespace ProjectSurvivor
 {
 	public partial class TreasureChestPanel
 	{
+		[SerializeField] public UnityEngine.UI.Image Icon;
 		[SerializeField] public UnityEngine.UI.Button BtnSure;
 		[SerializeField] public UnityEngine.UI.Text Content;
 
 		public void Clear()
 		{
+			Icon = null;
 			BtnSure = null;
 			Content = null;
 		}

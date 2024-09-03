@@ -7,21 +7,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using UnityEngine.U2D;
 
 namespace ProjectSurvivor
 {
 	public partial class ExpUpgradePanle : UIElement,IController
 	{
-		private void Awake()
+        private ResLoader mResLoader;
+        private void Awake()
 		{
-            var expUpgradeSystem=this.GetSystem<ExpUpgradeSystem>();
+            mResLoader = ResLoader.Allocate();
+            var iconAtlas = mResLoader.LoadSync<SpriteAtlas>("icon");
+            var expUpgradeSystem =this.GetSystem<ExpUpgradeSystem>();
             foreach(var expUpgradeItem in expUpgradeSystem.Items)
             {
                 BtnExpUpgradeItemTemplate.InstantiateWithParent(UpgradeRoot)
                        .Self(self =>
                        {
                            var itemCache = expUpgradeItem;
-                         
+                         self.transform.Find("Icon").GetComponent<Image>().sprite=
+                           iconAtlas.GetSprite(itemCache.IconName);
                            self.onClick.AddListener(() =>
                            {
                                Time.timeScale = 1.0f;
@@ -37,25 +42,27 @@ namespace ProjectSurvivor
                                {
                                    self.GetComponentInChildren<Text>().text = expUpgradeItem.Description;
                                    selfCache.Show();
-                                   if(expUpgradeSystem.Pairs.TryGetValue(itemCache.Key,out var pairedName))
+                                   var pairedUpgradeName= selfCache.transform.Find("PairedUpgradeName");
+                                   if (expUpgradeSystem.Pairs.TryGetValue(itemCache.Key,out var pairedName))
                                    {
                                        var pairedItem = expUpgradeSystem.Dictionary[pairedName];
                                        if (pairedItem.CurrentLevel.Value > 0 && itemCache.CurrentLevel.Value == 0)
                                        {
-                                           var pairedNameText = selfCache.transform.Find("PairedName");
-                                           pairedNameText.GetComponent<Text>().text =
-                                         "Åä¶Ô¼¼ÄÜ£º" + pairedItem.Key;
-                                           pairedNameText.Show();
+
+                                          
+                                           pairedUpgradeName.Find("Icon").GetComponent<Image>().sprite=
+                                           iconAtlas.GetSprite(pairedItem.IconName);
+                                           pairedUpgradeName.Show();
 
                                        }
                                        else
                                        {
-                                           selfCache.transform.Find("PairedName").Hide();
+                                           pairedUpgradeName.Hide();
                                        }
                                    }
                                    else
                                    {
-                                       selfCache.transform.Find("PairedName").Hide();
+                                       pairedUpgradeName.Hide();
                                    }
                                }
                                else
@@ -90,7 +97,8 @@ namespace ProjectSurvivor
 
         protected override void OnBeforeDestroy()
 		{
-           
+           mResLoader.Recycle2Cache();
+            mResLoader = null;
         }
 
         public IArchitecture GetArchitecture()

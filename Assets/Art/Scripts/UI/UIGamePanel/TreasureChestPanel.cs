@@ -8,11 +8,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using System.Linq;
+using UnityEngine.U2D;
 
 namespace ProjectSurvivor
 {
 	public partial class TreasureChestPanel : UIElement,IController
 	{
+        ResLoader mResLoader = ResLoader.Allocate();
 		private void Awake()
 		{
 			BtnSure.onClick.AddListener(() =>
@@ -27,7 +29,8 @@ namespace ProjectSurvivor
             var expUpgradeSystem=this.GetSystem<ExpUpgradeSystem>();
            var matchedPadiredItems= expUpgradeSystem.Items.Where(item =>
             {
-                if (item.CurrentLevel.Value >= 7)
+                //if (item.CurrentLevel.Value >= 7)
+                if(item.CurrentLevel.Value>=1&&item.PairedName.IsNotNullAndEmpty())
                 {
                     var containsInPair = expUpgradeSystem.Pairs.ContainsKey(item.Key);
                     var pairedItemKey = expUpgradeSystem.Pairs[item.Key];
@@ -40,11 +43,15 @@ namespace ProjectSurvivor
             if (matchedPadiredItems.Any())
             {
                 var item=matchedPadiredItems.ToList().GetRandomItem();
-                Content.text="<b>"+"合成后的"+item.Key+"</b>\n";
+                Content.text="<b>"+item.PairedName+"</b>\n"+item.PairedDescription;
                 while (!item.UpgradeFinish)
                 {
                     item.Upgrade();
                 }
+                Icon.sprite=mResLoader.LoadSync<SpriteAtlas>("Icon")
+                    .GetSprite(item.PairedIconName);
+               
+                Icon.Show();
                 expUpgradeSystem.PairedProperties[item.Key].Value = true;
 
             }
@@ -55,6 +62,10 @@ namespace ProjectSurvivor
                 {
                     var item = upgradeItems.GetRandomItem();
                     Content.text = item.Description;
+                    Icon.sprite = mResLoader.LoadSync<SpriteAtlas>("Icon")
+                   .GetSprite(item.IconName);
+
+                    Icon.Show();
                     item.Upgrade();
 
                 }
@@ -74,6 +85,7 @@ namespace ProjectSurvivor
 
                     Content.text = "增加 50 金币";
                     Global.Coin.Value += 50;
+                    Icon.Hide();
 
                 }
             }
@@ -82,7 +94,10 @@ namespace ProjectSurvivor
 
         protected override void OnBeforeDestroy()
 		{
-		}
+            mResLoader.Recycle2Cache();
+            mResLoader = null;
+
+        }
 
         public IArchitecture GetArchitecture()
         {

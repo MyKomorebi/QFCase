@@ -8350,7 +8350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &470377459
 Transform:
   m_ObjectHideFlags: 0
@@ -8497,11 +8497,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Namespace: 
-  ScriptName: 
-  ScriptsFolder: 
+  Namespace: ProjectSurvivor
+  ScriptName: TreasureChest
+  ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
-  PrefabFolder: 
+  PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
 --- !u!1 &480167112
@@ -9627,11 +9627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Namespace: 
-  ScriptName: 
-  ScriptsFolder: 
+  Namespace: ProjectSurvivor
+  ScriptName: Exp
+  ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
-  PrefabFolder: 
+  PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
 --- !u!1 &794910738
@@ -11019,11 +11019,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Namespace: 
-  ScriptName: 
-  ScriptsFolder: 
+  Namespace: ProjectSurvivor
+  ScriptName: GetAllExp
+  ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
-  PrefabFolder: 
+  PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
 --- !u!1 &1108000271
