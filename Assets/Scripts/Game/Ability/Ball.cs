@@ -22,7 +22,7 @@ namespace ProjectSurvivor
 
 			HurtBox.OnTriggerEnter2DEvent(collider =>
 			{
-				var hurtBox=collider.GetComponent<HurtBox>();
+				var hurtBox=collider.GetComponent<HitHurtBox>();
 				if (hurtBox)
 				{
 					if (hurtBox.Owner.CompareTag("Enemy"))

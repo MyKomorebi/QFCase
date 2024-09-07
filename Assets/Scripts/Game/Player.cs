@@ -26,7 +26,7 @@ namespace ProjectSurvivor
 			HurtBox.OnTriggerEnter2DEvent(Collider2D =>
 			{
 				//��ȡ��ײ��
-				var hitBox = Collider2D.GetComponent<HitBox>();
+				var hitBox = Collider2D.GetComponent<HitHurtBox>();
 				//�����Ϊ��
 				if(hitBox != null)
 				{

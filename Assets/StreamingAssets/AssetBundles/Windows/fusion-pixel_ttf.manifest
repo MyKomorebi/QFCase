@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 2519122701
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3e3f2abd94786b68b8aade6fb5d2f310
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: acc87f5f41cb638dcdccc8ca554b5154
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 3e3f2abd94786b68b8aade6fb5d2f310
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Art/Font/fusion-pixel.ttf
+Dependencies: []

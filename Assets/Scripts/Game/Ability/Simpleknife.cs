@@ -54,7 +54,7 @@ namespace ProjectSurvivor
                                     var attackCount = 0;
                                     self.OnTriggerEnter2DEvent(collider =>
                                     {
-                                        var hurtBox = collider.GetComponent<HurtBox>();
+                                        var hurtBox = collider.GetComponent<HitHurtBox>();
 
                                         if (hurtBox)
                                         {

@@ -41,7 +41,7 @@ namespace ProjectSurvivor
                                 var selfcache = self;
                                 selfcache.OnTriggerEnter2DEvent(collider2D =>
                                 {
-                                    var hurtBox = collider2D.GetComponent<HurtBox>();
+                                    var hurtBox = collider2D.GetComponent<HitHurtBox>();
                                     if (hurtBox)
                                     {
                                         if (hurtBox.Owner.CompareTag("Enemy"))

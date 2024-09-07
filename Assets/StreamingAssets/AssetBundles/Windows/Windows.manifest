@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 2797605124
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: uigamepasspanel_prefab
+      Dependencies:
+        Dependency_0: fusion-pixel_ttf
+    Info_1:
+      Name: uigamepanel_prefab
+      Dependencies:
+        Dependency_0: fusion-pixel_ttf
+    Info_2:
+      Name: levelup_ogg
+      Dependencies: {}
+    Info_3:
+      Name: uigameoverpanel_prefab
+      Dependencies:
+        Dependency_0: fusion-pixel_ttf
+    Info_4:
+      Name: uigamestartpanel_prefab
+      Dependencies:
+        Dependency_0: fusion-pixel_ttf
+    Info_5:
+      Name: sfx
+      Dependencies: {}
+    Info_6:
+      Name: icon_spriteatlas
+      Dependencies: {}
+    Info_7:
+      Name: fusion-pixel_ttf
+      Dependencies: {}

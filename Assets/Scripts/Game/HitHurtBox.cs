@@ -3,7 +3,7 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-	public partial class HitBox : GameplayObject
+	public partial class HitHurtBox : GameplayObject
 	{
         protected override Collider2D Collider2D =>mCollider2D;
 
