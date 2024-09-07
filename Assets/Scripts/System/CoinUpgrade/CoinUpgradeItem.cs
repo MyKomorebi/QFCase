@@ -6,7 +6,20 @@ using UnityEngine;
 
 public class CoinUpgradeItem : MonoBehaviour
 {
+
+    
     public EasyEvent Onchange=new EasyEvent();
+
+    private CoinUpgradeItem mNext=null;
+
+    public CoinUpgradeItem Next(CoinUpgradeItem next)
+    {
+        mNext = next;
+
+        mNext.Condition(_ => UpgradeFinish);
+        return mNext;
+
+    }
     public bool UpgradeFinish { get; set; } = false;
     public string Key { get;private set; }
 
@@ -19,10 +32,14 @@ public class CoinUpgradeItem : MonoBehaviour
     {
         mOnUpgrade?.Invoke(this);
             UpgradeFinish = true;
-        Onchange.Trigger();
+        TriggerOnChanged();
         CoinUpgradeSystem.OnCoinUpgradeSystem.Trigger();
     }
-
+    public void TriggerOnChanged()
+    {
+        Onchange.Trigger();
+        mNext?.TriggerOnChanged();
+    }
     public bool ConditionCheck()
     {
         if (mCondition != null)

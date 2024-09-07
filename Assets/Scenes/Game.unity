@@ -8350,7 +8350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &470377459
 Transform:
   m_ObjectHideFlags: 0
@@ -8574,7 +8574,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &480167114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9231,7 +9231,7 @@ SpriteRenderer:
   m_SortingLayerID: -1657683487
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 91e7ce41d68985e48a9ac9d7baa00e41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52f1789d688da0f4eb6bd361fb60b5c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9284,11 +9284,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Namespace: 
-  ScriptName: 
-  ScriptsFolder: 
+  Namespace: ProjectSurvivor
+  ScriptName: Bomb
+  ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
-  PrefabFolder: 
+  PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
 --- !u!4 &575046536 stripped
@@ -9558,7 +9558,7 @@ SpriteRenderer:
   m_SortingLayerID: -1657683487
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: feda15469a0846b4780780a527c56d47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fd091131a001b047926d56a3cba6276, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10042,7 +10042,7 @@ SpriteRenderer:
   m_SortingLayerID: -1657683487
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2f9f70e081e2cae4abfbcfae2e5a8dbf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d56bd7b6f9ebf343a702e9d335e385b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10111,11 +10111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Namespace: 
-  ScriptName: 
-  ScriptsFolder: 
+  Namespace: ProjectSurvivor
+  ScriptName: HP
+  ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
-  PrefabFolder: 
+  PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
 --- !u!1 &922863802
@@ -10439,7 +10439,7 @@ SpriteRenderer:
   m_SortingLayerID: -1657683487
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3002ed9b25ab1d34aa37b6c3377e4db8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2414622c2968be345a08cae8c14bea75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10492,11 +10492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81936539ae2d84665a86a2b3f531955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Namespace: 
-  ScriptName: 
-  ScriptsFolder: 
+  Namespace: ProjectSurvivor
+  ScriptName: Coin
+  ScriptsFolder: Assets/Scripts/Game
   GeneratePrefab: 0
-  PrefabFolder: 
+  PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
 --- !u!1 &1048310288
@@ -10966,7 +10966,7 @@ SpriteRenderer:
   m_SortingLayerID: -1657683487
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8999e8c40a3928745a69db228bb64b9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3deeb12a556d4fd4e9814e7f94d9a14b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

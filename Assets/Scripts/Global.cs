@@ -4,10 +4,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using static QFramework.AudioKit;
 namespace ProjectSurvivor
 {
     public class Global : Architecture<Global>
     {
+#if UNITY_EDITOR
+        [UnityEditor.MenuItem("Tool/Clear All Data")]
+        public static void ClearAllData()
+        {
+            PlayerPrefs.DeleteAll();
+        }
+#endif
         #region Model
         //血量
         public static BindableProperty<int> HP = new BindableProperty<int>(3);
@@ -75,6 +83,7 @@ namespace ProjectSurvivor
        //初始化
         public static void AutoInit()
         {
+            AudioKit.PlaySoundMode=PlaySoundModes.IgnoreSameSoundInGlobalFrames ;
             //初始化ResKit
             ResKit.Init();
             //设置UIRootCanvas的大小
@@ -160,7 +169,7 @@ namespace ProjectSurvivor
             }
             //血量回复掉落
             percent = Random.Range(0, 1f);
-            if (percent < 0.1f)
+            if (percent < 0.1f&&!GameObject.FindObjectOfType<HP>())
             {
                 PowerUpManager.Default.HP.Instantiate()
                    .Position(gameObject.Position())
@@ -184,7 +193,7 @@ namespace ProjectSurvivor
             
             //获取所有经验值掉落
             percent = Random.Range(0, 1f);
-            if (percent < 0.1f)
+            if (percent < 0.1f&&!GameObject.FindObjectOfType<GetAllExp>())
             {
                 PowerUpManager.Default.GetAllExp.Instantiate()
                    .Position(gameObject.Position())
@@ -264,6 +273,7 @@ namespace ProjectSurvivor
             this.RegisterSystem(new ExpUpgradeSystem());
             this.RegisterSystem(new SaveSystem());
             this.RegisterSystem(new CoinUpgradeSystem());
+            this.RegisterSystem(new AchievementSystem());
         }
     }
 }

@@ -29,8 +29,8 @@ namespace ProjectSurvivor
             var expUpgradeSystem=this.GetSystem<ExpUpgradeSystem>();
            var matchedPadiredItems= expUpgradeSystem.Items.Where(item =>
             {
-                //if (item.CurrentLevel.Value >= 7)
-                if(item.CurrentLevel.Value>=1&&item.PairedName.IsNotNullAndEmpty())
+                if (item.CurrentLevel.Value >= 7)
+               // if(item.CurrentLevel.Value>=1&&item.PairedName.IsNotNullAndEmpty())
                 {
                     var containsInPair = expUpgradeSystem.Pairs.ContainsKey(item.Key);
                     var pairedItemKey = expUpgradeSystem.Pairs[item.Key];

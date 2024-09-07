@@ -11,6 +11,11 @@
 namespace QAssetBundle
 {
     
+    public class Icon_spriteatlas
+    {
+        public const string BundleName = "icon_spriteatlas";
+        public const string ICON = "Icon";
+    }
     public class Levelup_ogg
     {
         public const string BundleName = "levelup_ogg";
@@ -20,8 +25,10 @@ namespace QAssetBundle
     {
         public const string BundleName = "sfx";
         public const string ABILLITYLEVELUP = "AbillityLevelUp";
+        public const string ACHIEVEMENT = "Achievement";
         public const string BALL = "Ball";
         public const string BOMB = "Bomb";
+        public const string BUTTONCLICK = "ButtonClick";
         public const string COIN = "Coin";
         public const string DIE = "Die";
         public const string ENEMYDIE = "EnemyDie";

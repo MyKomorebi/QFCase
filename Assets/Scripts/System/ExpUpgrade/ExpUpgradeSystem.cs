@@ -9,6 +9,14 @@ public class ExpUpgradeSystem : AbstractSystem
 {
 
     public List<ExpUpgradeItem> Items { get; } = new List<ExpUpgradeItem>();
+    public static bool AllUnlockedFinish=false;
+
+    public static void CheckAllUnlockFinish()
+    {
+        AllUnlockedFinish = Global.Interface.GetSystem<ExpUpgradeSystem>().Items
+            .All(i => i.UpgradeFinish);
+    }
+
     public Dictionary<string, ExpUpgradeItem> Dictionary = new ();
     public Dictionary<string, string> Pairs = new Dictionary<string, string>()
         {

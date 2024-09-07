@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using UnityEngine.SceneManagement;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -18,6 +19,8 @@ namespace ProjectSurvivor
 			
 			BtnStartGame.onClick.AddListener(() =>
 			{
+				AudioKit.PlaySound(Sfx.BUTTONCLICK);
+
 				Global.RestData();
 				this.CloseSelf();
 
@@ -26,10 +29,15 @@ namespace ProjectSurvivor
 
             BtnCoinUpgrade.onClick.AddListener(() =>
             {
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 CoinUpgradePanel.Show();
             });
 
-			
+			BtnAchivement.onClick.AddListener(() =>
+			{
+                AudioKit.PlaySound(Sfx.BUTTONCLICK);
+                AchivementPanel.Show();
+			});
 			this.GetSystem<CoinUpgradeSystem>().Say();
 		}
 		

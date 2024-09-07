@@ -12,7 +12,7 @@ public class ExpUpgradeItem
         IsWeapon = isWeapon;
     }
   public bool IsWeapon=false;
-    public bool UpgradeFinish { get; set; } = false;
+    public bool UpgradeFinish =>CurrentLevel.Value>=MaxLevel;
     public string Key { get; private set; }
 
     public string Name {  get; private set; }
@@ -32,12 +32,9 @@ public class ExpUpgradeItem
     {
         CurrentLevel.Value++;
         mOnUpgrade?.Invoke(this,CurrentLevel.Value);
-        if (CurrentLevel.Value > 10)
-        {
-            UpgradeFinish = true;
-        }
-      
         
+      
+        ExpUpgradeSystem.CheckAllUnlockFinish();
     }
 
    

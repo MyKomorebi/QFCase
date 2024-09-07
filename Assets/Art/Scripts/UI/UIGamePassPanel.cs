@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using UnityEngine.SceneManagement;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -19,6 +20,7 @@ namespace ProjectSurvivor
 
             BtnBackToStart.onClick.AddListener(() =>
             {
+				AudioKit.PlaySound(Sfx.BUTTONCLICK);
                 this.CloseSelf();
 
                 SceneManager.LoadScene(0);

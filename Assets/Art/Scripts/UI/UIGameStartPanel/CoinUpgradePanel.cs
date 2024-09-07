@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using System.Linq;
+using QAssetBundle;
 
 namespace ProjectSurvivor
 {
@@ -85,6 +86,7 @@ namespace ProjectSurvivor
 
                 BtnClose.onClick.AddListener(() =>
                 {
+                    AudioKit.PlaySound(Sfx.BUTTONCLICK);
                    this.Hide();
                 });
             }

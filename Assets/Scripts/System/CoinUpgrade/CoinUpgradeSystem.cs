@@ -16,45 +16,48 @@ public class CoinUpgradeSystem : AbstractSystem, ICanSvae
     }
     protected override void OnInit()
     {
-        var coinPercentLv1 = Add(new CoinUpgradeItem()
-             .WithKey("coin_percent")
+        Add(new CoinUpgradeItem()
+             .WithKey("coin_percent_lv1")
              .WithDescription("金币掉落概率提升 Lv1")
-             .WithPrice(5)
+             .WithPrice(100)
              .OnUpgrade((item) =>
              {
                  Global.CoinPercent.Value += 0.1f;
                  Global.Coin.Value -= item.Price;
-             }));
-        var coinPercentLv2 = Add(new CoinUpgradeItem()
-            .WithKey("coin_percent")
-            .WithDescription("金币掉落概率提升 Lv2")
-            .WithPrice(7)
-            .Condition((_) => coinPercentLv1.UpgradeFinish)
-            .OnUpgrade((item) =>
-            {
-                Global.CoinPercent.Value += 0.1f;
-                Global.Coin.Value -= item.Price;
-            }));
+             })
+             .Next(Add(new CoinUpgradeItem()
+                .WithKey("coin_percent_lv2")
+                .WithDescription("金币掉落概率提升 Lv2")
+                .WithPrice(1000)
+            //.Condition((_) => coinPercentLv1.UpgradeFinish)
+                .OnUpgrade((item) =>
+                {
+                    Global.CoinPercent.Value += 0.1f;
+                    Global.Coin.Value -= item.Price;
+                }))))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("coin_percent_lv3")
+                .WithDescription("金币掉落概率提升 Lv3")
+                .WithPrice(2000)
+                 // .Condition((_) => coinPercentLv2.UpgradeFinish)
+                .OnUpgrade((item) =>
+                {
+                    Global.CoinPercent.Value += 0.1f;
+                    Global.Coin.Value -= item.Price;
+                })))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("coin_percent_lv4")
+                .WithDescription("金币掉落概率提升 Lv4")
+                .WithPrice(5000)
+                // .Condition((_) => coinPercentLv2.UpgradeFinish)
+                .OnUpgrade((item) =>
+                {
+                    Global.CoinPercent.Value += 0.1f;
+                    Global.Coin.Value -= item.Price;
+                })));
+       
 
-        coinPercentLv1.Onchange.Register(() =>
-        {
-            coinPercentLv2.Onchange.Trigger();
-        });
-        var coinPercentLv3 = Add(new CoinUpgradeItem()
-            .WithKey("coin_percent")
-            .WithDescription("金币掉落概率提升 Lv3")
-            .WithPrice(10)
-              .Condition((_) => coinPercentLv2.UpgradeFinish)
-            .OnUpgrade((item) =>
-            {
-                Global.CoinPercent.Value += 0.1f;
-                Global.Coin.Value -= item.Price;
-            }));
-
-        coinPercentLv2.Onchange.Register(() =>
-        {
-            coinPercentLv3.Onchange.Trigger();
-        });
+       
         Items.Add(new CoinUpgradeItem()
             .WithKey("exp_percent")
             .WithDescription("经验值掉落概率提升")
@@ -64,15 +67,96 @@ public class CoinUpgradeSystem : AbstractSystem, ICanSvae
                 Global.CoinPercent.Value += 0.1f;
                 Global.Coin.Value -= item.Price;
             }));
-        Items.Add(new CoinUpgradeItem()
+        Add(new CoinUpgradeItem()
             .WithKey("max_hp")
             .WithDescription("主角的最大血量+1")
-            .WithPrice(30)
+            .WithPrice(1000)
             .OnUpgrade((item) =>
             {
                 Global.MaxHP.Value++;
                 Global.Coin.Value -= item.Price;
-            }));
+            }))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp1")
+                .WithDescription("主角的最大血量+1")
+                .WithPrice(2000)
+                .OnUpgrade((item) =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp2")
+                .WithDescription("主角的最大血量+1")
+                .WithPrice(3000)
+                .OnUpgrade((item) =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp3")
+                .WithDescription("主角的最大血量+1")
+                .WithPrice(4000)
+                .OnUpgrade((item) =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp4")
+                .WithDescription("主角的最大血量+1")
+                .WithPrice(5000)
+                .OnUpgrade((item) =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp5")
+                .WithDescription("主角的最大血量+1")
+                .WithPrice(6000)
+                .OnUpgrade((item) =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp6")
+                .WithDescription("主角的最大血量+1")
+                .WithPrice(7000)
+                .OnUpgrade((item) =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp7")
+                .WithDescription("主角的最大血量+1")
+                .WithPrice(8000)
+                .OnUpgrade((item) =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp8")
+                .WithDescription("主角的最大血量+1")
+                .WithPrice(9000)
+                .OnUpgrade((item) =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })))
+            .Next(Add(new CoinUpgradeItem()
+                .WithKey("max_hp10")
+                .WithDescription("主角的最大血量+1")
+                .WithPrice(10000)
+                .OnUpgrade((item) =>
+                {
+                    Global.MaxHP.Value++;
+                    Global.Coin.Value -= item.Price;
+                })));
         Load();
         OnCoinUpgradeSystem.Register(() =>
         {

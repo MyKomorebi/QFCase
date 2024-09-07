@@ -3,7 +3,7 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-	public partial class Exp : GameplayObject
+	public partial class Exp : PowerUp
 	{
         protected override Collider2D Collider2D =>SelfCollider2D;
         
@@ -12,14 +12,19 @@ namespace ProjectSurvivor
             //如果进入碰撞范围
             if (collision.GetComponent<CollectableArea>())
             {
-                //播放经验音效
-                AudioKit.PlaySound("Exp");
-                //经验加一
-                Global.Exp.Value++;
-                //销毁自己
-                this.DestroyGameObjGracefully();
+                FlyingToPlayer=true;
             }
            
+        }
+
+        protected override void Execute()
+        {
+            //播放经验音效
+            AudioKit.PlaySound("Exp");
+            //经验加一
+            Global.Exp.Value++;
+            //销毁自己
+            this.DestroyGameObjGracefully();
         }
     }
 }
