@@ -8,15 +8,24 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 namespace Survivor
 {
-	public class NewPlayer :BaseController
-	{
+	public class NewPlayer :BaseController,ITrackable
+    {
+        /// <summary>
+        /// 输入
+        /// </summary>
 		private IMovementInput mMovementInput;
 		
-
+        /// <summary>
+        /// 2D刚体
+        /// </summary>
 		private Rigidbody2D mRigidbody2D;
-
+        /// <summary>
+        /// 动画控制器
+        /// </summary>
         private Animator mAnimator;
-
+        /// <summary>
+        /// QF的声音播放器
+        /// </summary>
         private AudioPlayer mWalkSfx;
 
         /// <summary>
@@ -24,9 +33,14 @@ namespace Survivor
 		/// </summary>
 		[SerializeField]
         private float mMovementSpeed = 5f;
-
+        /// <summary>
+        /// 是否朝向右边
+        /// </summary>
         private bool mIsFaceRight = false;
-
+        /// <summary>
+        /// 玩家的Transform
+        /// </summary>
+        public Transform PlayerTransform => transform;
 
         private void Start()
 		{
@@ -36,12 +50,14 @@ namespace Survivor
             StartCheckInput();
         }
 
-
+        /// <summary>
+        /// 检测输入，控制移动，修改状态
+        /// </summary>
 		private void StartCheckInput()
 		{
 			CheckPlayerInput().ForEachAsync(delta =>
 			{
-                Debug.Log("zxinf1");
+               
 				var targetVelocity=
 					new Vector2(delta.horizontal,delta.vertical)
 					.normalized*mMovementSpeed;
@@ -55,7 +71,11 @@ namespace Survivor
 
         }
 
-        // 封装角色动画和音效状态控制
+        /// <summary>
+        /// 封装角色动画和音效状态控制
+        /// </summary>
+        /// <param name="horizontal"></param>
+        /// <param name="vertical"></param>
         private void UpdateMovementState(float horizontal, float vertical)
         {
             // 使用局部变量缓存移动状态，避免重复计算
@@ -76,28 +96,34 @@ namespace Survivor
         }
 
         #region Sub-Methods 子方法分解
-        // 处理闲置状态
+        /// <summary>
+        /// 处理闲置状态
+        /// </summary>
         private void HandleIdleState()
         {
             string idleAnim = mIsFaceRight ? "PlayerIdleRight" : "PlayerIdleLeft";
             mAnimator.Play(idleAnim);
         }
 
-        // 停止移动音效
+        /// <summary>
+        /// 停止移动音效
+        /// </summary>
         private void StopMovementSound()
         {
             if (mWalkSfx == null) return;
-
+            ///回收播放器
             mWalkSfx.Stop();
             mWalkSfx = null; // 显式释放引用
         }
 
-        // 处理移动音效
+        /// <summary>
+        /// 处理移动音效
+        /// </summary>
         private void HandleMovementSound()
         {
             if (mWalkSfx == null)
             {
-                // 使用带循环参数的音效播放
+                // 播放移动音效，并且获取播放器
                 mWalkSfx = AudioKit.PlaySound(Sfx.WALK, true);
             }
         }
@@ -112,7 +138,9 @@ namespace Survivor
             }
         }
 
-        // 处理行走动画
+        /// <summary>
+        /// 处理行走动画
+        /// </summary>
         private void HandleWalkingAnimation()
         {
             string walkAnim = mIsFaceRight ? "PlayerWalkRight" : "PlayerWalkLeft";
@@ -120,7 +148,10 @@ namespace Survivor
         }
         #endregion
 
-
+        /// <summary>
+        /// 检查输入
+        /// </summary>
+        /// <returns></returns>
         private IUniTaskAsyncEnumerable<( float horizontal, float vertical)>CheckPlayerInput()
 		{
 			return UniTaskAsyncEnumerable.Create<(float, float)>
